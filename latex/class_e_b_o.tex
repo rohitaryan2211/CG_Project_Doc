@@ -1,0 +1,136 @@
+\hypertarget{class_e_b_o}{}\doxysection{EBO Class Reference}
+\label{class_e_b_o}\index{EBO@{EBO}}
+
+
+{\ttfamily \#include $<$EBO.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_b_o_a948568526e395abc06dbc51b7aedec3b}{EBO}} (std\+::vector$<$ GLuint $>$ \&indices)
+\item 
+void \mbox{\hyperlink{class_e_b_o_abfb8d44a95ebc043d2d3b1b7c71689e4}{Bind}} ()
+\item 
+void \mbox{\hyperlink{class_e_b_o_aeaba495af304f0a3a42d041aec49a759}{Unbind}} ()
+\item 
+void \mbox{\hyperlink{class_e_b_o_a19ec6b0474d1e2085b0f85415426a65d}{Delete}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLuint \mbox{\hyperlink{class_e_b_o_a1bac67da73823718810604a69d428b45}{ID}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_e_b_o_8h_source_l00007}{7}} of file \mbox{\hyperlink{_e_b_o_8h_source}{EBO.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_b_o_a948568526e395abc06dbc51b7aedec3b}\label{class_e_b_o_a948568526e395abc06dbc51b7aedec3b}} 
+\index{EBO@{EBO}!EBO@{EBO}}
+\index{EBO@{EBO}!EBO@{EBO}}
+\doxysubsubsection{\texorpdfstring{EBO()}{EBO()}}
+{\footnotesize\ttfamily EBO\+::\+EBO (\begin{DoxyParamCaption}\item[{std\+::vector$<$ GLuint $>$ \&}]{indices }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Constructor that generates a Elements Buffer Object and links it to indices 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_e_b_o_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{_e_b_o_8cpp_source}{EBO.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005 \{}
+\DoxyCodeLine{00006     glGenBuffers(1, \&\mbox{\hyperlink{class_e_b_o_a1bac67da73823718810604a69d428b45}{ID}});}
+\DoxyCodeLine{00007     glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \mbox{\hyperlink{class_e_b_o_a1bac67da73823718810604a69d428b45}{ID}});}
+\DoxyCodeLine{00008     glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, indices.size() * \textcolor{keyword}{sizeof}(GLuint), indices.data(), GL\_STATIC\_DRAW);}
+\DoxyCodeLine{00009 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_b_o_abfb8d44a95ebc043d2d3b1b7c71689e4}\label{class_e_b_o_abfb8d44a95ebc043d2d3b1b7c71689e4}} 
+\index{EBO@{EBO}!Bind@{Bind}}
+\index{Bind@{Bind}!EBO@{EBO}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily void EBO\+::\+Bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Binds the \mbox{\hyperlink{class_e_b_o}{EBO}} 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_e_b_o_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_e_b_o_8cpp_source}{EBO.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013 \{}
+\DoxyCodeLine{00014     glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \mbox{\hyperlink{class_e_b_o_a1bac67da73823718810604a69d428b45}{ID}});}
+\DoxyCodeLine{00015 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_e_b_o_a19ec6b0474d1e2085b0f85415426a65d}\label{class_e_b_o_a19ec6b0474d1e2085b0f85415426a65d}} 
+\index{EBO@{EBO}!Delete@{Delete}}
+\index{Delete@{Delete}!EBO@{EBO}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily void EBO\+::\+Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Deletes the \mbox{\hyperlink{class_e_b_o}{EBO}} 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_e_b_o_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{_e_b_o_8cpp_source}{EBO.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025 \{}
+\DoxyCodeLine{00026     glDeleteBuffers(1, \&\mbox{\hyperlink{class_e_b_o_a1bac67da73823718810604a69d428b45}{ID}});}
+\DoxyCodeLine{00027 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_e_b_o_aeaba495af304f0a3a42d041aec49a759}\label{class_e_b_o_aeaba495af304f0a3a42d041aec49a759}} 
+\index{EBO@{EBO}!Unbind@{Unbind}}
+\index{Unbind@{Unbind}!EBO@{EBO}}
+\doxysubsubsection{\texorpdfstring{Unbind()}{Unbind()}}
+{\footnotesize\ttfamily void EBO\+::\+Unbind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Unbinds the \mbox{\hyperlink{class_e_b_o}{EBO}} 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_e_b_o_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{_e_b_o_8cpp_source}{EBO.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019 \{}
+\DoxyCodeLine{00020     glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, 0);}
+\DoxyCodeLine{00021 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_b_o_a1bac67da73823718810604a69d428b45}\label{class_e_b_o_a1bac67da73823718810604a69d428b45}} 
+\index{EBO@{EBO}!ID@{ID}}
+\index{ID@{ID}!EBO@{EBO}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily GLuint EBO\+::\+ID}
+
+
+
+Definition at line \mbox{\hyperlink{_e_b_o_8h_source_l00011}{11}} of file \mbox{\hyperlink{_e_b_o_8h_source}{EBO.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Project1/\mbox{\hyperlink{_e_b_o_8h}{EBO.\+h}}\item 
+D\+:/\+Project1/\mbox{\hyperlink{_e_b_o_8cpp}{EBO.\+cpp}}\end{DoxyCompactItemize}

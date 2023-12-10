@@ -1,0 +1,34 @@
+\hypertarget{_v_b_o_8cpp_source}{}\doxysection{VBO.\+cpp}
+\label{_v_b_o_8cpp_source}\index{D:/Project1/VBO.cpp@{D:/Project1/VBO.cpp}}
+\mbox{\hyperlink{_v_b_o_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_v_b_o_8h}{VBO.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00003}00003 \textcolor{comment}{// Constructor that generates a Vertex Buffer Object and links it to vertices}}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00004}\mbox{\hyperlink{class_v_b_o_af8b63b52a126cbc9141e55d0cd45f3cc}{00004}} \mbox{\hyperlink{class_v_b_o_af8b63b52a126cbc9141e55d0cd45f3cc}{VBO::VBO}}(std::vector<Vertex>\& vertices)}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00005}00005 \{}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00007}00007     }
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00008}00008     glGenBuffers(1, \&\mbox{\hyperlink{class_v_b_o_a1d86ebe24b5cd05143e4318d5a73aa45}{ID}});}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00009}00009     glBindBuffer(GL\_ARRAY\_BUFFER, \mbox{\hyperlink{class_v_b_o_a1d86ebe24b5cd05143e4318d5a73aa45}{ID}});}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00010}00010     glBufferData(GL\_ARRAY\_BUFFER, vertices.size() * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_vertex}{Vertex}}), vertices.data(), GL\_STATIC\_DRAW);}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00011}00011 \}}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00013}00013 \textcolor{comment}{// Binds the VBO}}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00014}\mbox{\hyperlink{class_v_b_o_af7ce2a599aecbcf9b97d3f30b294a0b2}{00014}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_v_b_o_af7ce2a599aecbcf9b97d3f30b294a0b2}{VBO::Bind}}()}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00015}00015 \{}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00017}00017     glBindBuffer(GL\_ARRAY\_BUFFER, \mbox{\hyperlink{class_v_b_o_a1d86ebe24b5cd05143e4318d5a73aa45}{ID}});}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00018}00018 \}}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00020}00020 \textcolor{comment}{// Unbinds the VBO}}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00021}\mbox{\hyperlink{class_v_b_o_a4b3db8676fbf6dd90d47ed91cafb0abb}{00021}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_v_b_o_a4b3db8676fbf6dd90d47ed91cafb0abb}{VBO::Unbind}}()}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00022}00022 \{}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00024}00024     glBindBuffer(GL\_ARRAY\_BUFFER, 0);}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00025}00025 \}}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00027}00027 \textcolor{comment}{// Deletes the VBO}}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00028}\mbox{\hyperlink{class_v_b_o_a8a2489bf3fd5e4f7761e3e590e321ea9}{00028}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_v_b_o_a8a2489bf3fd5e4f7761e3e590e321ea9}{VBO::Delete}}()}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00029}00029 \{}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00031}00031     glDeleteBuffers(1, \&\mbox{\hyperlink{class_v_b_o_a1d86ebe24b5cd05143e4318d5a73aa45}{ID}});}
+\DoxyCodeLine{\Hypertarget{_v_b_o_8cpp_source_l00032}00032 \}}
+
+\end{DoxyCode}

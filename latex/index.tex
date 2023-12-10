@@ -1,0 +1,27 @@
+\hypertarget{index_intro_sec}{}\doxysubsection{Topic\+:}\label{index_intro_sec}
+The topic for the project is softening shadows and removing artifacts using {\bfseries{Percentage Closer Filtering (PCF) }}. ~\newline
+ \hypertarget{index_aim_sec}{}\doxysubsection{Aim\+:}\label{index_aim_sec}
+We used this research paper where the authors present a solution to aliasing problem for shadow algorithms that uses depth maps.
+
+\href{https://graphics.pixar.com/library/ShadowMaps/paper.pdf}{\texttt{ https\+://graphics.\+pixar.\+com/library/\+Shadow\+Maps/paper.\+pdf}} ~\newline
+ \hypertarget{index_overview_sec}{}\doxysubsection{Overview\+:}\label{index_overview_sec}
+We will be using Directional Lights as our main source of lightings in the scene and have a Crow model placed for our test subject.
+
+We are using Depth Maps for implementing Shadow Maps in the scene. Shadow\+Map Program generates a Depth Map from light\textquotesingle{}s perspective and sends it to the camera for the models to cast shadows using \mbox{\hyperlink{class_shader}{Shader}} Program.
+
+Here, we should see a Hardline Shadow formed by the parts of models to itself like the hat to its face, beak to its clothes and many more.
+
+By implementing PCF, we apply a Kernel of some radius to average out the shadow value across the edge of the shadows and blending the edge.
+
+We see a good result of soft shadows for radius of 3 and above but we notice significant performance issues for radius near 8 and above due to it\textquotesingle{}s computation needs.\hypertarget{index_team_sec}{}\doxysubsection{Team Members\+:}\label{index_team_sec}
+
+\begin{DoxyPre}
+ ROHIT ARYAN            2020AAPS0293H
+ RUSHIL SHRIVASTAVA     2020AAPS1408H 
+ GAUTHAM GUTTA          2020AAPS2204H 
+ SAMARPIT S ROUT        2020AAPS1332H 
+ \end{DoxyPre}
+\hypertarget{index_implementation_sec}{}\doxysubsection{Results\+:}\label{index_implementation_sec}
+Results for Sample Radius = 0, Sample Radius = 2 and Sample Radius = 5 respectively
+
+   

@@ -1,0 +1,137 @@
+\hypertarget{class_v_b_o}{}\doxysection{VBO Class Reference}
+\label{class_v_b_o}\index{VBO@{VBO}}
+
+
+{\ttfamily \#include $<$VBO.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_v_b_o_af8b63b52a126cbc9141e55d0cd45f3cc}{VBO}} (std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ \&vertices)
+\item 
+void \mbox{\hyperlink{class_v_b_o_af7ce2a599aecbcf9b97d3f30b294a0b2}{Bind}} ()
+\item 
+void \mbox{\hyperlink{class_v_b_o_a4b3db8676fbf6dd90d47ed91cafb0abb}{Unbind}} ()
+\item 
+void \mbox{\hyperlink{class_v_b_o_a8a2489bf3fd5e4f7761e3e590e321ea9}{Delete}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLuint \mbox{\hyperlink{class_v_b_o_a1d86ebe24b5cd05143e4318d5a73aa45}{ID}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_v_b_o_8h_source_l00018}{18}} of file \mbox{\hyperlink{_v_b_o_8h_source}{VBO.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_v_b_o_af8b63b52a126cbc9141e55d0cd45f3cc}\label{class_v_b_o_af8b63b52a126cbc9141e55d0cd45f3cc}} 
+\index{VBO@{VBO}!VBO@{VBO}}
+\index{VBO@{VBO}!VBO@{VBO}}
+\doxysubsubsection{\texorpdfstring{VBO()}{VBO()}}
+{\footnotesize\ttfamily VBO\+::\+VBO (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ \&}]{vertices }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Constructor that generates a \mbox{\hyperlink{struct_vertex}{Vertex}} Buffer Object and links it to vertices
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_v_b_o_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{_v_b_o_8cpp_source}{VBO.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005 \{}
+\DoxyCodeLine{00007     }
+\DoxyCodeLine{00008     glGenBuffers(1, \&\mbox{\hyperlink{class_v_b_o_a1d86ebe24b5cd05143e4318d5a73aa45}{ID}});}
+\DoxyCodeLine{00009     glBindBuffer(GL\_ARRAY\_BUFFER, \mbox{\hyperlink{class_v_b_o_a1d86ebe24b5cd05143e4318d5a73aa45}{ID}});}
+\DoxyCodeLine{00010     glBufferData(GL\_ARRAY\_BUFFER, vertices.size() * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_vertex}{Vertex}}), vertices.data(), GL\_STATIC\_DRAW);}
+\DoxyCodeLine{00011 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_v_b_o_af7ce2a599aecbcf9b97d3f30b294a0b2}\label{class_v_b_o_af7ce2a599aecbcf9b97d3f30b294a0b2}} 
+\index{VBO@{VBO}!Bind@{Bind}}
+\index{Bind@{Bind}!VBO@{VBO}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily void VBO\+::\+Bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Binds the \mbox{\hyperlink{class_v_b_o}{VBO}}
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_v_b_o_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_v_b_o_8cpp_source}{VBO.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015 \{}
+\DoxyCodeLine{00017     glBindBuffer(GL\_ARRAY\_BUFFER, \mbox{\hyperlink{class_v_b_o_a1d86ebe24b5cd05143e4318d5a73aa45}{ID}});}
+\DoxyCodeLine{00018 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_v_b_o_a8a2489bf3fd5e4f7761e3e590e321ea9}\label{class_v_b_o_a8a2489bf3fd5e4f7761e3e590e321ea9}} 
+\index{VBO@{VBO}!Delete@{Delete}}
+\index{Delete@{Delete}!VBO@{VBO}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily void VBO\+::\+Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Deletes the \mbox{\hyperlink{class_v_b_o}{VBO}}
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_v_b_o_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{_v_b_o_8cpp_source}{VBO.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029 \{}
+\DoxyCodeLine{00031     glDeleteBuffers(1, \&\mbox{\hyperlink{class_v_b_o_a1d86ebe24b5cd05143e4318d5a73aa45}{ID}});}
+\DoxyCodeLine{00032 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_v_b_o_a4b3db8676fbf6dd90d47ed91cafb0abb}\label{class_v_b_o_a4b3db8676fbf6dd90d47ed91cafb0abb}} 
+\index{VBO@{VBO}!Unbind@{Unbind}}
+\index{Unbind@{Unbind}!VBO@{VBO}}
+\doxysubsubsection{\texorpdfstring{Unbind()}{Unbind()}}
+{\footnotesize\ttfamily void VBO\+::\+Unbind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Unbinds the \mbox{\hyperlink{class_v_b_o}{VBO}}
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_v_b_o_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{_v_b_o_8cpp_source}{VBO.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022 \{}
+\DoxyCodeLine{00024     glBindBuffer(GL\_ARRAY\_BUFFER, 0);}
+\DoxyCodeLine{00025 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_v_b_o_a1d86ebe24b5cd05143e4318d5a73aa45}\label{class_v_b_o_a1d86ebe24b5cd05143e4318d5a73aa45}} 
+\index{VBO@{VBO}!ID@{ID}}
+\index{ID@{ID}!VBO@{VBO}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily GLuint VBO\+::\+ID}
+
+
+
+Definition at line \mbox{\hyperlink{_v_b_o_8h_source_l00022}{22}} of file \mbox{\hyperlink{_v_b_o_8h_source}{VBO.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Project1/\mbox{\hyperlink{_v_b_o_8h}{VBO.\+h}}\item 
+D\+:/\+Project1/\mbox{\hyperlink{_v_b_o_8cpp}{VBO.\+cpp}}\end{DoxyCompactItemize}

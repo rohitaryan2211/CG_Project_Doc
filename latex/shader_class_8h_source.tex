@@ -1,0 +1,37 @@
+\hypertarget{shader_class_8h_source}{}\doxysection{shader\+Class.\+h}
+\label{shader_class_8h_source}\index{D:/Project1/shaderClass.h@{D:/Project1/shaderClass.h}}
+\mbox{\hyperlink{shader_class_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef SHADER\_CLASS\_H}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00002}00002 \textcolor{preprocessor}{\#define SHADER\_CLASS\_H}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00004}00004 \textcolor{preprocessor}{\#include<glad/glad.h>}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00005}00005 \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00006}00006 \textcolor{preprocessor}{\#include<fstream>}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00007}00007 \textcolor{preprocessor}{\#include<sstream>}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00008}00008 \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00009}00009 \textcolor{preprocessor}{\#include<cerrno>}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00011}00011 std::string \mbox{\hyperlink{shader_class_8h_a0c4b002426f3eb09187c4a7c5c577a89}{get\_file\_contents}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* filename);}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00013}\mbox{\hyperlink{class_shader}{00013}} \textcolor{keyword}{class }\mbox{\hyperlink{class_shader}{Shader}}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00014}00014 \{}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00015}00015 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00016}00016     \textcolor{comment}{// Reference ID of the Shader Program}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00017}\mbox{\hyperlink{class_shader_a7be2afcbd5ba5873a04536a2b4b5e576}{00017}}     GLuint \mbox{\hyperlink{class_shader_a7be2afcbd5ba5873a04536a2b4b5e576}{ID}};}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00018}00018     \textcolor{comment}{// Constructor that build the Shader Program from 2 different shaders}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00019}00019     \mbox{\hyperlink{class_shader}{Shader}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* vertexFile, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* fragmentFile);}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00021}00021     \textcolor{comment}{// Activates the Shader Program}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00022}00022     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_shader_a4315a6336472b293392aa50e7a4e65d0}{Activate}}();}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00023}00023     \textcolor{comment}{// Deletes the Shader Program}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00024}00024     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_shader_a5b61f74d76f407882682314c6f998106}{Delete}}();}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00025}00025 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00026}00026     \textcolor{comment}{// Checks if the different Shaders have compiled properly}}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00027}00027     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_shader_ada34390061a1ddc480f95924b79720a2}{compileErrors}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} shader, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* type);}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00028}00028 \};}
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{shader_class_8h_source_l00031}00031 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

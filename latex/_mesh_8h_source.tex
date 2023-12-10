@@ -1,0 +1,40 @@
+\hypertarget{_mesh_8h_source}{}\doxysection{Mesh.\+h}
+\label{_mesh_8h_source}\index{D:/Project1/Mesh.h@{D:/Project1/Mesh.h}}
+\mbox{\hyperlink{_mesh_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef MESH\_CLASS\_H}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00002}00002 \textcolor{preprocessor}{\#define MESH\_CLASS\_H}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00004}00004 \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00006}00006 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_v_a_o_8h}{VAO.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00007}00007 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_e_b_o_8h}{EBO.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00008}00008 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00009}00009 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_texture_8h}{Texture.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00011}\mbox{\hyperlink{class_mesh}{00011}} \textcolor{keyword}{class }\mbox{\hyperlink{class_mesh}{Mesh}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00012}00012 \{}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00013}00013 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00014}\mbox{\hyperlink{class_mesh_a6465a888c97232a39e12aad008c969c3}{00014}}     std::vector <Vertex> \mbox{\hyperlink{class_mesh_a6465a888c97232a39e12aad008c969c3}{vertices}};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00015}\mbox{\hyperlink{class_mesh_a5e55b84c6c967608bcf23ed7d68e4215}{00015}}     std::vector <GLuint> \mbox{\hyperlink{class_mesh_a5e55b84c6c967608bcf23ed7d68e4215}{indices}};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00016}\mbox{\hyperlink{class_mesh_abf1e672703bf4f8e104f3b076faaf958}{00016}}     std::vector <Texture> \mbox{\hyperlink{class_mesh_abf1e672703bf4f8e104f3b076faaf958}{textures}};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00017}00017     \textcolor{comment}{// Store VAO in public so it can be used in the Draw function}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00018}\mbox{\hyperlink{class_mesh_a070175e7c5d0d1de32a9d62cce73ace0}{00018}}     \mbox{\hyperlink{class_v_a_o}{VAO}} \mbox{\hyperlink{class_mesh_a070175e7c5d0d1de32a9d62cce73ace0}{VAO}};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00020}00020     \textcolor{comment}{// Initializes the mesh}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00021}00021     \mbox{\hyperlink{class_mesh}{Mesh}}(std::vector <Vertex>\& \mbox{\hyperlink{class_mesh_a6465a888c97232a39e12aad008c969c3}{vertices}}, std::vector <GLuint>\& \mbox{\hyperlink{class_mesh_a5e55b84c6c967608bcf23ed7d68e4215}{indices}}, std::vector <Texture>\& \mbox{\hyperlink{class_mesh_abf1e672703bf4f8e104f3b076faaf958}{textures}});}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00023}00023     \textcolor{comment}{// Draws the mesh}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00024}00024     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_mesh_ad426ffcf04c7df2631f492a80e06d738}{Draw}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00025}00025     (}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00026}00026         \mbox{\hyperlink{class_shader}{Shader}}\& shader,}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00027}00027         \mbox{\hyperlink{class_camera}{Camera}}\& camera,}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00028}00028         glm::mat4 matrix = glm::mat4(1.0f),}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00029}00029         glm::vec3 translation = glm::vec3(0.0f, 0.0f, 0.0f),}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00030}00030         glm::quat rotation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f),}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00031}00031         glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f)}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00032}00032     );}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00033}00033 \};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00034}00034 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

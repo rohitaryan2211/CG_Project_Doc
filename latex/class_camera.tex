@@ -1,0 +1,353 @@
+\hypertarget{class_camera}{}\doxysection{Camera Class Reference}
+\label{class_camera}\index{Camera@{Camera}}
+
+
+{\ttfamily \#include $<$Camera.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_camera_a4cc661022f19e481fabdf02dc46c0e02}{Camera}} (int \mbox{\hyperlink{class_camera_a7f3890bf4c4bd76790569c1c42014e32}{width}}, int \mbox{\hyperlink{class_camera_a71d4b6a3a1bcd937a9f147a3e35a8fed}{height}}, glm\+::vec3 position)
+\item 
+void \mbox{\hyperlink{class_camera_af2f7d8094afc9fe8fc2a74deb7088909}{update\+Matrix}} (float FOVdeg, float near\+Plane, float far\+Plane)
+\item 
+void \mbox{\hyperlink{class_camera_ae54a64c6b63804e101289cff12874445}{Matrix}} (\mbox{\hyperlink{class_shader}{Shader}} \&shader, const char $\ast$uniform)
+\item 
+void \mbox{\hyperlink{class_camera_a5b919210645253810d32e84a763aa0ed}{Inputs}} (GLFWwindow $\ast$window)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_camera_a9733b59f5340f6f1bca24d52a6679039}{Position}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_camera_ab998c79a8bcbd71dcaad201f536e36e1}{Orientation}} = glm\+::vec3(0.\+0f, 0.\+0f, -\/1.\+0f)
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_camera_ad74c4a490bc8865e67e27a2036d0a72d}{Up}} = glm\+::vec3(0.\+0f, 1.\+0f, 0.\+0f)
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_camera_ab64c758c9bfd88201598e8f77cb380eb}{camera\+Matrix}} = glm\+::mat4(1.\+0f)
+\item 
+bool \mbox{\hyperlink{class_camera_a9ab381eac17a629e3451328622c6c5a9}{first\+Click}} = true
+\item 
+int \mbox{\hyperlink{class_camera_a7f3890bf4c4bd76790569c1c42014e32}{width}}
+\item 
+int \mbox{\hyperlink{class_camera_a71d4b6a3a1bcd937a9f147a3e35a8fed}{height}}
+\item 
+float \mbox{\hyperlink{class_camera_a2960f533df18fe6d7d574c316c6d217a}{speed}} = 0.\+1f
+\item 
+float \mbox{\hyperlink{class_camera_a5431c8caefafb42a667ca4c801bef07f}{sensitivity}} = 100.\+0f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00014}{14}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_camera_a4cc661022f19e481fabdf02dc46c0e02}\label{class_camera_a4cc661022f19e481fabdf02dc46c0e02}} 
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}}
+{\footnotesize\ttfamily Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{glm\+::vec3}]{position }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Constructor used initialize width, height and the position of the camera.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_camera_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{_camera_8cpp_source}{Camera.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005 \{}
+\DoxyCodeLine{00007     }
+\DoxyCodeLine{00008     \mbox{\hyperlink{class_camera_a7f3890bf4c4bd76790569c1c42014e32}{Camera::width}} = \mbox{\hyperlink{class_camera_a7f3890bf4c4bd76790569c1c42014e32}{width}};}
+\DoxyCodeLine{00009     \mbox{\hyperlink{class_camera_a71d4b6a3a1bcd937a9f147a3e35a8fed}{Camera::height}} = \mbox{\hyperlink{class_camera_a71d4b6a3a1bcd937a9f147a3e35a8fed}{height}};}
+\DoxyCodeLine{00010     \mbox{\hyperlink{class_camera_a9733b59f5340f6f1bca24d52a6679039}{Position}} = position;}
+\DoxyCodeLine{00011 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_camera_a5b919210645253810d32e84a763aa0ed}\label{class_camera_a5b919210645253810d32e84a763aa0ed}} 
+\index{Camera@{Camera}!Inputs@{Inputs}}
+\index{Inputs@{Inputs}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Inputs()}{Inputs()}}
+{\footnotesize\ttfamily void Camera\+::\+Inputs (\begin{DoxyParamCaption}\item[{GLFWwindow $\ast$}]{window }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Handles} & key inputs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+W \+: Move Forward 
+
+A \+: Move Left 
+
+S \+: Move Backward 
+
+D \+: Move Right 
+
+Space \+: Move Upward 
+
+Left Control \+: Move Downward 
+
+Left Shift Hold \+: Speed X4 
+
+Left Shilft Release (Default) \+: Speed X1
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em Handles} & mouse inputs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Mouse Left Click Hold \+: Hides cursor and Orientation rotates based on cursor drag 
+
+Mouse Left Click Release \+: Unhides cursor and Orientation doesn\textquotesingle{}t rotate.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_camera_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{_camera_8cpp_source}{Camera.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039 \{}
+\DoxyCodeLine{00040     }
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051     \textcolor{comment}{//  Handles key inputs}}
+\DoxyCodeLine{00052     \textcolor{keywordflow}{if} (glfwGetKey(window, GLFW\_KEY\_W) == GLFW\_PRESS)}
+\DoxyCodeLine{00053     \{}
+\DoxyCodeLine{00054         \mbox{\hyperlink{class_camera_a9733b59f5340f6f1bca24d52a6679039}{Position}} += \mbox{\hyperlink{class_camera_a2960f533df18fe6d7d574c316c6d217a}{speed}} * \mbox{\hyperlink{class_camera_ab998c79a8bcbd71dcaad201f536e36e1}{Orientation}};}
+\DoxyCodeLine{00055     \}}
+\DoxyCodeLine{00056     \textcolor{keywordflow}{if} (glfwGetKey(window, GLFW\_KEY\_A) == GLFW\_PRESS)}
+\DoxyCodeLine{00057     \{}
+\DoxyCodeLine{00058         \mbox{\hyperlink{class_camera_a9733b59f5340f6f1bca24d52a6679039}{Position}} += \mbox{\hyperlink{class_camera_a2960f533df18fe6d7d574c316c6d217a}{speed}} * -\/glm::normalize(glm::cross(\mbox{\hyperlink{class_camera_ab998c79a8bcbd71dcaad201f536e36e1}{Orientation}}, \mbox{\hyperlink{class_camera_ad74c4a490bc8865e67e27a2036d0a72d}{Up}}));}
+\DoxyCodeLine{00059     \}}
+\DoxyCodeLine{00060     \textcolor{keywordflow}{if} (glfwGetKey(window, GLFW\_KEY\_S) == GLFW\_PRESS)}
+\DoxyCodeLine{00061     \{}
+\DoxyCodeLine{00062         \mbox{\hyperlink{class_camera_a9733b59f5340f6f1bca24d52a6679039}{Position}} += \mbox{\hyperlink{class_camera_a2960f533df18fe6d7d574c316c6d217a}{speed}} * -\/\mbox{\hyperlink{class_camera_ab998c79a8bcbd71dcaad201f536e36e1}{Orientation}};}
+\DoxyCodeLine{00063     \}}
+\DoxyCodeLine{00064     \textcolor{keywordflow}{if} (glfwGetKey(window, GLFW\_KEY\_D) == GLFW\_PRESS)}
+\DoxyCodeLine{00065     \{}
+\DoxyCodeLine{00066         \mbox{\hyperlink{class_camera_a9733b59f5340f6f1bca24d52a6679039}{Position}} += \mbox{\hyperlink{class_camera_a2960f533df18fe6d7d574c316c6d217a}{speed}} * glm::normalize(glm::cross(\mbox{\hyperlink{class_camera_ab998c79a8bcbd71dcaad201f536e36e1}{Orientation}}, \mbox{\hyperlink{class_camera_ad74c4a490bc8865e67e27a2036d0a72d}{Up}}));}
+\DoxyCodeLine{00067     \}}
+\DoxyCodeLine{00068     \textcolor{keywordflow}{if} (glfwGetKey(window, GLFW\_KEY\_SPACE) == GLFW\_PRESS)}
+\DoxyCodeLine{00069     \{}
+\DoxyCodeLine{00070         \mbox{\hyperlink{class_camera_a9733b59f5340f6f1bca24d52a6679039}{Position}} += \mbox{\hyperlink{class_camera_a2960f533df18fe6d7d574c316c6d217a}{speed}} * \mbox{\hyperlink{class_camera_ad74c4a490bc8865e67e27a2036d0a72d}{Up}};}
+\DoxyCodeLine{00071     \}}
+\DoxyCodeLine{00072     \textcolor{keywordflow}{if} (glfwGetKey(window, GLFW\_KEY\_LEFT\_CONTROL) == GLFW\_PRESS)}
+\DoxyCodeLine{00073     \{}
+\DoxyCodeLine{00074         \mbox{\hyperlink{class_camera_a9733b59f5340f6f1bca24d52a6679039}{Position}} += \mbox{\hyperlink{class_camera_a2960f533df18fe6d7d574c316c6d217a}{speed}} * -\/\mbox{\hyperlink{class_camera_ad74c4a490bc8865e67e27a2036d0a72d}{Up}};}
+\DoxyCodeLine{00075     \}}
+\DoxyCodeLine{00076     \textcolor{keywordflow}{if} (glfwGetKey(window, GLFW\_KEY\_LEFT\_SHIFT) == GLFW\_PRESS)}
+\DoxyCodeLine{00077     \{}
+\DoxyCodeLine{00078         \mbox{\hyperlink{class_camera_a2960f533df18fe6d7d574c316c6d217a}{speed}} = 0.08f;}
+\DoxyCodeLine{00079     \}}
+\DoxyCodeLine{00080     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (glfwGetKey(window, GLFW\_KEY\_LEFT\_SHIFT) == GLFW\_RELEASE)}
+\DoxyCodeLine{00081     \{}
+\DoxyCodeLine{00082         \mbox{\hyperlink{class_camera_a2960f533df18fe6d7d574c316c6d217a}{speed}} = 0.02f;}
+\DoxyCodeLine{00083     \}}
+\DoxyCodeLine{00084 }
+\DoxyCodeLine{00088     \textcolor{keywordflow}{if} (glfwGetMouseButton(window, GLFW\_MOUSE\_BUTTON\_LEFT) == GLFW\_PRESS)}
+\DoxyCodeLine{00089     \{}
+\DoxyCodeLine{00090         \textcolor{comment}{// Hides mouse cursor}}
+\DoxyCodeLine{00091         glfwSetInputMode(window, GLFW\_CURSOR, GLFW\_CURSOR\_HIDDEN);}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093         \textcolor{comment}{// Prevents camera from jumping on the first click}}
+\DoxyCodeLine{00094         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_camera_a9ab381eac17a629e3451328622c6c5a9}{firstClick}})}
+\DoxyCodeLine{00095         \{}
+\DoxyCodeLine{00096             glfwSetCursorPos(window, (\mbox{\hyperlink{class_camera_a7f3890bf4c4bd76790569c1c42014e32}{width}} / 2), (\mbox{\hyperlink{class_camera_a71d4b6a3a1bcd937a9f147a3e35a8fed}{height}} / 2));}
+\DoxyCodeLine{00097             \mbox{\hyperlink{class_camera_a9ab381eac17a629e3451328622c6c5a9}{firstClick}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00098         \}}
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{00100         \textcolor{comment}{// Stores the coordinates of the cursor}}
+\DoxyCodeLine{00101         \textcolor{keywordtype}{double} mouseX;}
+\DoxyCodeLine{00102         \textcolor{keywordtype}{double} mouseY;}
+\DoxyCodeLine{00103         \textcolor{comment}{// Fetches the coordinates of the cursor}}
+\DoxyCodeLine{00104         glfwGetCursorPos(window, \&mouseX, \&mouseY);}
+\DoxyCodeLine{00105 }
+\DoxyCodeLine{00106         \textcolor{comment}{// Normalizes and shifts the coordinates of the cursor such that they begin in the middle of the screen}}
+\DoxyCodeLine{00107         \textcolor{comment}{// and then "{}transforms"{} them into degrees }}
+\DoxyCodeLine{00108         \textcolor{keywordtype}{float} rotX = \mbox{\hyperlink{class_camera_a5431c8caefafb42a667ca4c801bef07f}{sensitivity}} * (float)(mouseY -\/ (\mbox{\hyperlink{class_camera_a71d4b6a3a1bcd937a9f147a3e35a8fed}{height}} / 2)) / \mbox{\hyperlink{class_camera_a71d4b6a3a1bcd937a9f147a3e35a8fed}{height}};}
+\DoxyCodeLine{00109         \textcolor{keywordtype}{float} rotY = \mbox{\hyperlink{class_camera_a5431c8caefafb42a667ca4c801bef07f}{sensitivity}} * (float)(mouseX -\/ (\mbox{\hyperlink{class_camera_a7f3890bf4c4bd76790569c1c42014e32}{width}} / 2)) / \mbox{\hyperlink{class_camera_a7f3890bf4c4bd76790569c1c42014e32}{width}};}
+\DoxyCodeLine{00110 }
+\DoxyCodeLine{00111         \textcolor{comment}{// Calculates upcoming vertical change in the Orientation}}
+\DoxyCodeLine{00112         glm::vec3 newOrientation = glm::rotate(\mbox{\hyperlink{class_camera_ab998c79a8bcbd71dcaad201f536e36e1}{Orientation}}, glm::radians(-\/rotX), glm::normalize(glm::cross(\mbox{\hyperlink{class_camera_ab998c79a8bcbd71dcaad201f536e36e1}{Orientation}}, \mbox{\hyperlink{class_camera_ad74c4a490bc8865e67e27a2036d0a72d}{Up}})));}
+\DoxyCodeLine{00113 }
+\DoxyCodeLine{00114         \textcolor{comment}{// Decides whether or not the next vertical Orientation is legal or not}}
+\DoxyCodeLine{00115         \textcolor{keywordflow}{if} (abs(glm::angle(newOrientation, \mbox{\hyperlink{class_camera_ad74c4a490bc8865e67e27a2036d0a72d}{Up}}) -\/ glm::radians(90.0f)) <= glm::radians(85.0f))}
+\DoxyCodeLine{00116         \{}
+\DoxyCodeLine{00117             \mbox{\hyperlink{class_camera_ab998c79a8bcbd71dcaad201f536e36e1}{Orientation}} = newOrientation;}
+\DoxyCodeLine{00118         \}}
+\DoxyCodeLine{00119 }
+\DoxyCodeLine{00120         \textcolor{comment}{// Rotates the Orientation left and right}}
+\DoxyCodeLine{00121         \mbox{\hyperlink{class_camera_ab998c79a8bcbd71dcaad201f536e36e1}{Orientation}} = glm::rotate(\mbox{\hyperlink{class_camera_ab998c79a8bcbd71dcaad201f536e36e1}{Orientation}}, glm::radians(-\/rotY), \mbox{\hyperlink{class_camera_ad74c4a490bc8865e67e27a2036d0a72d}{Up}});}
+\DoxyCodeLine{00122 }
+\DoxyCodeLine{00123         \textcolor{comment}{// Sets mouse cursor to the middle of the screen so that it doesn't end up roaming around}}
+\DoxyCodeLine{00124         glfwSetCursorPos(window, (\mbox{\hyperlink{class_camera_a7f3890bf4c4bd76790569c1c42014e32}{width}} / 2), (\mbox{\hyperlink{class_camera_a71d4b6a3a1bcd937a9f147a3e35a8fed}{height}} / 2));}
+\DoxyCodeLine{00125     \}}
+\DoxyCodeLine{00126     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (glfwGetMouseButton(window, GLFW\_MOUSE\_BUTTON\_LEFT) == GLFW\_RELEASE)}
+\DoxyCodeLine{00127     \{}
+\DoxyCodeLine{00128         \textcolor{comment}{// Unhides cursor since camera is not looking around anymore}}
+\DoxyCodeLine{00129         glfwSetInputMode(window, GLFW\_CURSOR, GLFW\_CURSOR\_NORMAL);}
+\DoxyCodeLine{00130         \textcolor{comment}{// Makes sure the next time the camera looks around it doesn't jump}}
+\DoxyCodeLine{00131         \mbox{\hyperlink{class_camera_a9ab381eac17a629e3451328622c6c5a9}{firstClick}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00132     \}}
+\DoxyCodeLine{00133 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_camera_ae54a64c6b63804e101289cff12874445}\label{class_camera_ae54a64c6b63804e101289cff12874445}} 
+\index{Camera@{Camera}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}}
+{\footnotesize\ttfamily void Camera\+::\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_shader}{Shader}} \&}]{shader,  }\item[{const char $\ast$}]{uniform }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Exports camera matrix
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_camera_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{_camera_8cpp_source}{Camera.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031 \{}
+\DoxyCodeLine{00033     glUniformMatrix4fv(glGetUniformLocation(shader.\mbox{\hyperlink{class_shader_a7be2afcbd5ba5873a04536a2b4b5e576}{ID}}, uniform), 1, GL\_FALSE, glm::value\_ptr(\mbox{\hyperlink{class_camera_ab64c758c9bfd88201598e8f77cb380eb}{cameraMatrix}}));}
+\DoxyCodeLine{00034 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_camera_af2f7d8094afc9fe8fc2a74deb7088909}\label{class_camera_af2f7d8094afc9fe8fc2a74deb7088909}} 
+\index{Camera@{Camera}!updateMatrix@{updateMatrix}}
+\index{updateMatrix@{updateMatrix}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{updateMatrix()}{updateMatrix()}}
+{\footnotesize\ttfamily void Camera\+::update\+Matrix (\begin{DoxyParamCaption}\item[{float}]{FOVdeg,  }\item[{float}]{near\+Plane,  }\item[{float}]{far\+Plane }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Initializes matrices and makes camera look in the right direction from right direction and updates camera\+Matrix.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_camera_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_camera_8cpp_source}{Camera.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014 \{}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017     \textcolor{comment}{// Initializes matrices since otherwise they will be the null matrix}}
+\DoxyCodeLine{00018     glm::mat4 view = glm::mat4(1.0f);}
+\DoxyCodeLine{00019     glm::mat4 projection = glm::mat4(1.0f);}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{00021     \textcolor{comment}{// Makes camera look in the right direction from the right position}}
+\DoxyCodeLine{00022     view = glm::lookAt(\mbox{\hyperlink{class_camera_a9733b59f5340f6f1bca24d52a6679039}{Position}}, \mbox{\hyperlink{class_camera_a9733b59f5340f6f1bca24d52a6679039}{Position}} + \mbox{\hyperlink{class_camera_ab998c79a8bcbd71dcaad201f536e36e1}{Orientation}}, \mbox{\hyperlink{class_camera_ad74c4a490bc8865e67e27a2036d0a72d}{Up}});}
+\DoxyCodeLine{00023     \textcolor{comment}{// Adds perspective to the scene}}
+\DoxyCodeLine{00024     projection = glm::perspective(glm::radians(FOVdeg), (\textcolor{keywordtype}{float})\mbox{\hyperlink{class_camera_a7f3890bf4c4bd76790569c1c42014e32}{width}} / \mbox{\hyperlink{class_camera_a71d4b6a3a1bcd937a9f147a3e35a8fed}{height}}, nearPlane, farPlane);}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026     \textcolor{comment}{// Sets new camera matrix}}
+\DoxyCodeLine{00027     \mbox{\hyperlink{class_camera_ab64c758c9bfd88201598e8f77cb380eb}{cameraMatrix}} = projection * view;}
+\DoxyCodeLine{00028 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_camera_ab64c758c9bfd88201598e8f77cb380eb}\label{class_camera_ab64c758c9bfd88201598e8f77cb380eb}} 
+\index{Camera@{Camera}!cameraMatrix@{cameraMatrix}}
+\index{cameraMatrix@{cameraMatrix}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{cameraMatrix}{cameraMatrix}}
+{\footnotesize\ttfamily glm\+::mat4 Camera\+::camera\+Matrix = glm\+::mat4(1.\+0f)}
+
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00021}{21}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+\mbox{\Hypertarget{class_camera_a9ab381eac17a629e3451328622c6c5a9}\label{class_camera_a9ab381eac17a629e3451328622c6c5a9}} 
+\index{Camera@{Camera}!firstClick@{firstClick}}
+\index{firstClick@{firstClick}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{firstClick}{firstClick}}
+{\footnotesize\ttfamily bool Camera\+::first\+Click = true}
+
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00024}{24}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+\mbox{\Hypertarget{class_camera_a71d4b6a3a1bcd937a9f147a3e35a8fed}\label{class_camera_a71d4b6a3a1bcd937a9f147a3e35a8fed}} 
+\index{Camera@{Camera}!height@{height}}
+\index{height@{height}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily int Camera\+::height}
+
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00028}{28}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+\mbox{\Hypertarget{class_camera_ab998c79a8bcbd71dcaad201f536e36e1}\label{class_camera_ab998c79a8bcbd71dcaad201f536e36e1}} 
+\index{Camera@{Camera}!Orientation@{Orientation}}
+\index{Orientation@{Orientation}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Orientation}{Orientation}}
+{\footnotesize\ttfamily glm\+::vec3 Camera\+::\+Orientation = glm\+::vec3(0.\+0f, 0.\+0f, -\/1.\+0f)}
+
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00019}{19}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+\mbox{\Hypertarget{class_camera_a9733b59f5340f6f1bca24d52a6679039}\label{class_camera_a9733b59f5340f6f1bca24d52a6679039}} 
+\index{Camera@{Camera}!Position@{Position}}
+\index{Position@{Position}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Position}{Position}}
+{\footnotesize\ttfamily glm\+::vec3 Camera\+::\+Position}
+
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00018}{18}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+\mbox{\Hypertarget{class_camera_a5431c8caefafb42a667ca4c801bef07f}\label{class_camera_a5431c8caefafb42a667ca4c801bef07f}} 
+\index{Camera@{Camera}!sensitivity@{sensitivity}}
+\index{sensitivity@{sensitivity}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{sensitivity}{sensitivity}}
+{\footnotesize\ttfamily float Camera\+::sensitivity = 100.\+0f}
+
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00032}{32}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+\mbox{\Hypertarget{class_camera_a2960f533df18fe6d7d574c316c6d217a}\label{class_camera_a2960f533df18fe6d7d574c316c6d217a}} 
+\index{Camera@{Camera}!speed@{speed}}
+\index{speed@{speed}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily float Camera\+::speed = 0.\+1f}
+
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00031}{31}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+\mbox{\Hypertarget{class_camera_ad74c4a490bc8865e67e27a2036d0a72d}\label{class_camera_ad74c4a490bc8865e67e27a2036d0a72d}} 
+\index{Camera@{Camera}!Up@{Up}}
+\index{Up@{Up}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Up}{Up}}
+{\footnotesize\ttfamily glm\+::vec3 Camera\+::\+Up = glm\+::vec3(0.\+0f, 1.\+0f, 0.\+0f)}
+
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00020}{20}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+\mbox{\Hypertarget{class_camera_a7f3890bf4c4bd76790569c1c42014e32}\label{class_camera_a7f3890bf4c4bd76790569c1c42014e32}} 
+\index{Camera@{Camera}!width@{width}}
+\index{width@{width}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily int Camera\+::width}
+
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00027}{27}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Project1/\mbox{\hyperlink{_camera_8h}{Camera.\+h}}\item 
+D\+:/\+Project1/\mbox{\hyperlink{_camera_8cpp}{Camera.\+cpp}}\end{DoxyCompactItemize}

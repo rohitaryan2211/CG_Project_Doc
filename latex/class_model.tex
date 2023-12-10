@@ -1,0 +1,700 @@
+\hypertarget{class_model}{}\doxysection{Model Class Reference}
+\label{class_model}\index{Model@{Model}}
+
+
+{\ttfamily \#include $<$Model.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_model_a647cff32e29e24f165b4346a97354cc8}{Model}} (const char $\ast$\mbox{\hyperlink{class_model_a985ac61fad8fcb5baa96f4c9e396a2a2}{file}})
+\item 
+void \mbox{\hyperlink{class_model_a36cbebdb9fa44a1d249c72b350dcffb4}{Draw}} (\mbox{\hyperlink{class_shader}{Shader}} \&shader, \mbox{\hyperlink{class_camera}{Camera}} \&camera)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_model_a39eee214e7a7e84f5c017178cc3d3aff}{load\+Mesh}} (unsigned int ind\+Mesh)
+\item 
+void \mbox{\hyperlink{class_model_a7129b5377e1f85e156a992ae00fa4d80}{traverse\+Node}} (unsigned int next\+Node, glm\+::mat4 matrix=glm\+::mat4(1.\+0f))
+\item 
+std\+::vector$<$ unsigned char $>$ \mbox{\hyperlink{class_model_acd12be7397fb3b6c3a59bfca5a6cf9fd}{get\+Data}} ()
+\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{class_model_a1a7e8b5ceb36dc024f0ff6d004f6c4a8}{get\+Floats}} (\mbox{\hyperlink{_model_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} accessor)
+\item 
+std\+::vector$<$ GLuint $>$ \mbox{\hyperlink{class_model_a7236effae5cb0433f51131bfedd936ba}{get\+Indices}} (\mbox{\hyperlink{_model_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} accessor)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$ \mbox{\hyperlink{class_model_ac96ce2975c29078462e914b8d4148015}{get\+Textures}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ \mbox{\hyperlink{class_model_a6b6a437fcafdc52ef356e991ba248428}{assemble\+Vertices}} (std\+::vector$<$ glm\+::vec3 $>$ positions, std\+::vector$<$ glm\+::vec3 $>$ normals, std\+::vector$<$ glm\+::vec2 $>$ tex\+UVs)
+\item 
+std\+::vector$<$ glm\+::vec2 $>$ \mbox{\hyperlink{class_model_a9cb33404aeae6749dedbd5312df85102}{group\+Floats\+Vec2}} (std\+::vector$<$ float $>$ float\+Vec)
+\item 
+std\+::vector$<$ glm\+::vec3 $>$ \mbox{\hyperlink{class_model_ae3242e8e5341b9f70026ed9fbcd86a2c}{group\+Floats\+Vec3}} (std\+::vector$<$ float $>$ float\+Vec)
+\item 
+std\+::vector$<$ glm\+::vec4 $>$ \mbox{\hyperlink{class_model_ad48c883141b747e5a958d28562ff4090}{group\+Floats\+Vec4}} (std\+::vector$<$ float $>$ float\+Vec)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{class_model_a985ac61fad8fcb5baa96f4c9e396a2a2}{file}}
+\item 
+std\+::vector$<$ unsigned char $>$ \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}
+\item 
+\mbox{\hyperlink{_model_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_mesh}{Mesh}} $>$ \mbox{\hyperlink{class_model_a538e42901dcfba59471072a48a162163}{meshes}}
+\item 
+std\+::vector$<$ glm\+::vec3 $>$ \mbox{\hyperlink{class_model_a819bbf28d430fdc675b08ebbde36af4a}{translations\+Meshes}}
+\item 
+std\+::vector$<$ glm\+::quat $>$ \mbox{\hyperlink{class_model_a246f56a4766ad19ef01295a142eeebbf}{rotations\+Meshes}}
+\item 
+std\+::vector$<$ glm\+::vec3 $>$ \mbox{\hyperlink{class_model_acd1c3bda68ce08e79031f45d2f3b5f35}{scales\+Meshes}}
+\item 
+std\+::vector$<$ glm\+::mat4 $>$ \mbox{\hyperlink{class_model_a3b59570b1d1c848a531b74d8c85c76f7}{matrices\+Meshes}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_model_a646427b6fff817a86fc88954117d3283}{loaded\+Tex\+Name}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$ \mbox{\hyperlink{class_model_a78e1ecbb6ab9db1b39ac80fa46123de2}{loaded\+Tex}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00009}{9}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_model_a647cff32e29e24f165b4346a97354cc8}\label{class_model_a647cff32e29e24f165b4346a97354cc8}} 
+\index{Model@{Model}!Model@{Model}}
+\index{Model@{Model}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{Model()}{Model()}}
+{\footnotesize\ttfamily Model\+::\+Model (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+To generate a model from gltf file using json
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004 \{}
+\DoxyCodeLine{00006     }
+\DoxyCodeLine{00007     \textcolor{comment}{// Make a JSON object}}
+\DoxyCodeLine{00008     std::string text = \mbox{\hyperlink{shader_class_8cpp_a0c4b002426f3eb09187c4a7c5c577a89}{get\_file\_contents}}(\mbox{\hyperlink{class_model_a985ac61fad8fcb5baa96f4c9e396a2a2}{file}});}
+\DoxyCodeLine{00009     \mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}} = json::parse(text);}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011     \textcolor{comment}{// Get the binary data}}
+\DoxyCodeLine{00012     \mbox{\hyperlink{class_model_a985ac61fad8fcb5baa96f4c9e396a2a2}{Model::file}} = \mbox{\hyperlink{class_model_a985ac61fad8fcb5baa96f4c9e396a2a2}{file}};}
+\DoxyCodeLine{00013     \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}} = \mbox{\hyperlink{class_model_acd12be7397fb3b6c3a59bfca5a6cf9fd}{getData}}();}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015     \textcolor{comment}{// Traverse all nodes}}
+\DoxyCodeLine{00016     \mbox{\hyperlink{class_model_a7129b5377e1f85e156a992ae00fa4d80}{traverseNode}}(0);}
+\DoxyCodeLine{00017 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_model_a6b6a437fcafdc52ef356e991ba248428}\label{class_model_a6b6a437fcafdc52ef356e991ba248428}} 
+\index{Model@{Model}!assembleVertices@{assembleVertices}}
+\index{assembleVertices@{assembleVertices}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{assembleVertices()}{assembleVertices()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ Model\+::assemble\+Vertices (\begin{DoxyParamCaption}\item[{std\+::vector$<$ glm\+::vec3 $>$}]{positions,  }\item[{std\+::vector$<$ glm\+::vec3 $>$}]{normals,  }\item[{std\+::vector$<$ glm\+::vec2 $>$}]{tex\+UVs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyNote}{Note}
+Combines all vertex components to single vertex vector.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00297}{297}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00303 \{}
+\DoxyCodeLine{00305     }
+\DoxyCodeLine{00306     std::vector<Vertex> vertices;}
+\DoxyCodeLine{00307     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < positions.size(); i++)}
+\DoxyCodeLine{00308     \{}
+\DoxyCodeLine{00309         vertices.push\_back}
+\DoxyCodeLine{00310         (}
+\DoxyCodeLine{00311             \mbox{\hyperlink{struct_vertex}{Vertex}}}
+\DoxyCodeLine{00312             \{}
+\DoxyCodeLine{00313                 positions[i],}
+\DoxyCodeLine{00314                 normals[i],}
+\DoxyCodeLine{00315                 glm::vec3(1.0f, 1.0f, 1.0f),}
+\DoxyCodeLine{00316                 texUVs[i]}
+\DoxyCodeLine{00317             \}}
+\DoxyCodeLine{00318         );}
+\DoxyCodeLine{00319     \}}
+\DoxyCodeLine{00320     \textcolor{keywordflow}{return} vertices;}
+\DoxyCodeLine{00321 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_model_a36cbebdb9fa44a1d249c72b350dcffb4}\label{class_model_a36cbebdb9fa44a1d249c72b350dcffb4}} 
+\index{Model@{Model}!Draw@{Draw}}
+\index{Draw@{Draw}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Model\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_shader}{Shader}} \&}]{shader,  }\item[{\mbox{\hyperlink{class_camera}{Camera}} \&}]{camera }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+To Draw/\+Render model with a given \mbox{\hyperlink{class_shader}{Shader}} and \mbox{\hyperlink{class_camera}{Camera}} Class.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020 \{}
+\DoxyCodeLine{00022     }
+\DoxyCodeLine{00023     \textcolor{comment}{// Go over all meshes and draw each one}}
+\DoxyCodeLine{00024     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_model_a538e42901dcfba59471072a48a162163}{meshes}}.size(); i++)}
+\DoxyCodeLine{00025     \{}
+\DoxyCodeLine{00026         \mbox{\hyperlink{class_model_a538e42901dcfba59471072a48a162163}{meshes}}[i].Mesh::Draw(shader, camera, \mbox{\hyperlink{class_model_a3b59570b1d1c848a531b74d8c85c76f7}{matricesMeshes}}[i]);}
+\DoxyCodeLine{00027     \}}
+\DoxyCodeLine{00028 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_model_acd12be7397fb3b6c3a59bfca5a6cf9fd}\label{class_model_acd12be7397fb3b6c3a59bfca5a6cf9fd}} 
+\index{Model@{Model}!getData@{getData}}
+\index{getData@{getData}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily std\+::vector$<$ unsigned char $>$ Model\+::get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyNote}{Note}
+To store, extract and transform raw text data into bytes and put in vector format.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00137}{137}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138 \{}
+\DoxyCodeLine{00140     }
+\DoxyCodeLine{00141     \textcolor{comment}{// Create a place to store the raw text, and get the uri of the .bin file}}
+\DoxyCodeLine{00142     std::string bytesText;}
+\DoxyCodeLine{00143     std::string uri = \mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}buffers"{}}][0][\textcolor{stringliteral}{"{}uri"{}}];}
+\DoxyCodeLine{00144 }
+\DoxyCodeLine{00145     \textcolor{comment}{// Store raw text data into bytesText}}
+\DoxyCodeLine{00146     std::string fileStr = std::string(\mbox{\hyperlink{class_model_a985ac61fad8fcb5baa96f4c9e396a2a2}{file}});}
+\DoxyCodeLine{00147     std::string fileDirectory = fileStr.substr(0, fileStr.find\_last\_of(\textcolor{charliteral}{'/'}) + 1);}
+\DoxyCodeLine{00148     bytesText = \mbox{\hyperlink{shader_class_8cpp_a0c4b002426f3eb09187c4a7c5c577a89}{get\_file\_contents}}((fileDirectory + uri).c\_str());}
+\DoxyCodeLine{00149 }
+\DoxyCodeLine{00150     \textcolor{comment}{// Transform the raw text data into bytes and put them in a vector}}
+\DoxyCodeLine{00151     std::vector<unsigned char> \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}(bytesText.begin(), bytesText.end());}
+\DoxyCodeLine{00152     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}};}
+\DoxyCodeLine{00153 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_model_a1a7e8b5ceb36dc024f0ff6d004f6c4a8}\label{class_model_a1a7e8b5ceb36dc024f0ff6d004f6c4a8}} 
+\index{Model@{Model}!getFloats@{getFloats}}
+\index{getFloats@{getFloats}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{getFloats()}{getFloats()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Model\+::get\+Floats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_model_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}}}]{accessor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyNote}{Note}
+Convert bytes extracted from char array to float vector.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00155}{155}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156 \{}
+\DoxyCodeLine{00158 }
+\DoxyCodeLine{00159     std::vector<float> floatVec;}
+\DoxyCodeLine{00160 }
+\DoxyCodeLine{00161     \textcolor{comment}{// Get properties from the accessor}}
+\DoxyCodeLine{00162     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} buffViewInd = accessor.value(\textcolor{stringliteral}{"{}bufferView"{}}, 1);}
+\DoxyCodeLine{00163     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} count = accessor[\textcolor{stringliteral}{"{}count"{}}];}
+\DoxyCodeLine{00164     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} accByteOffset = accessor.value(\textcolor{stringliteral}{"{}byteOffset"{}}, 0);}
+\DoxyCodeLine{00165     std::string type = accessor[\textcolor{stringliteral}{"{}type"{}}];}
+\DoxyCodeLine{00166 }
+\DoxyCodeLine{00167     \textcolor{comment}{// Get properties from the bufferView}}
+\DoxyCodeLine{00168     \mbox{\hyperlink{_model_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} bufferView = \mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}bufferViews"{}}][buffViewInd];}
+\DoxyCodeLine{00169     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} byteOffset = bufferView[\textcolor{stringliteral}{"{}byteOffset"{}}];}
+\DoxyCodeLine{00170 }
+\DoxyCodeLine{00171     \textcolor{comment}{// Interpret the type and store it into numPerVert}}
+\DoxyCodeLine{00172     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} numPerVert;}
+\DoxyCodeLine{00173     \textcolor{keywordflow}{if} (type == \textcolor{stringliteral}{"{}SCALAR"{}}) numPerVert = 1;}
+\DoxyCodeLine{00174     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (type == \textcolor{stringliteral}{"{}VEC2"{}}) numPerVert = 2;}
+\DoxyCodeLine{00175     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (type == \textcolor{stringliteral}{"{}VEC3"{}}) numPerVert = 3;}
+\DoxyCodeLine{00176     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (type == \textcolor{stringliteral}{"{}VEC4"{}}) numPerVert = 4;}
+\DoxyCodeLine{00177     \textcolor{keywordflow}{else} \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}Type is invalid (not SCALAR, VEC2, VEC3, or VEC4)"{}});}
+\DoxyCodeLine{00178 }
+\DoxyCodeLine{00179     \textcolor{comment}{// Go over all the bytes in the data at the correct place using the properties from above}}
+\DoxyCodeLine{00180     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} beginningOfData = byteOffset + accByteOffset;}
+\DoxyCodeLine{00181     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} lengthOfData = count * 4 * numPerVert;}
+\DoxyCodeLine{00182     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = beginningOfData; i < beginningOfData + lengthOfData; i)}
+\DoxyCodeLine{00183     \{}
+\DoxyCodeLine{00184         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} bytes[] = \{ \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}[i++], \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}[i++], \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}[i++], \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}[i++] \};}
+\DoxyCodeLine{00185         \textcolor{keywordtype}{float} value;}
+\DoxyCodeLine{00186         std::memcpy(\&value, bytes, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{00187         floatVec.push\_back(value);}
+\DoxyCodeLine{00188     \}}
+\DoxyCodeLine{00189 }
+\DoxyCodeLine{00190     \textcolor{keywordflow}{return} floatVec;}
+\DoxyCodeLine{00191 \}   }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_model_a7236effae5cb0433f51131bfedd936ba}\label{class_model_a7236effae5cb0433f51131bfedd936ba}} 
+\index{Model@{Model}!getIndices@{getIndices}}
+\index{getIndices@{getIndices}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{getIndices()}{getIndices()}}
+{\footnotesize\ttfamily std\+::vector$<$ GLuint $>$ Model\+::get\+Indices (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_model_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}}}]{accessor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyNote}{Note}
+Extracts Indices from the json file.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00193}{193}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00194 \{}
+\DoxyCodeLine{00196     }
+\DoxyCodeLine{00197     std::vector<GLuint> indices;}
+\DoxyCodeLine{00198 }
+\DoxyCodeLine{00199     \textcolor{comment}{// Get properties from the accessor}}
+\DoxyCodeLine{00200     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} buffViewInd = accessor.value(\textcolor{stringliteral}{"{}bufferView"{}}, 0);}
+\DoxyCodeLine{00201     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} count = accessor[\textcolor{stringliteral}{"{}count"{}}];}
+\DoxyCodeLine{00202     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} accByteOffset = accessor.value(\textcolor{stringliteral}{"{}byteOffset"{}}, 0);}
+\DoxyCodeLine{00203     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} componentType = accessor[\textcolor{stringliteral}{"{}componentType"{}}];}
+\DoxyCodeLine{00204 }
+\DoxyCodeLine{00205     \textcolor{comment}{// Get properties from the bufferView}}
+\DoxyCodeLine{00206     \mbox{\hyperlink{_model_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} bufferView = \mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}bufferViews"{}}][buffViewInd];}
+\DoxyCodeLine{00207     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} byteOffset = bufferView[\textcolor{stringliteral}{"{}byteOffset"{}}];}
+\DoxyCodeLine{00208 }
+\DoxyCodeLine{00209     \textcolor{comment}{// Get indices with regards to their type: unsigned int, unsigned short, or short}}
+\DoxyCodeLine{00210     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} beginningOfData = byteOffset + accByteOffset;}
+\DoxyCodeLine{00211     \textcolor{keywordflow}{if} (componentType == 5125)}
+\DoxyCodeLine{00212     \{}
+\DoxyCodeLine{00213         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = beginningOfData; i < byteOffset + accByteOffset + count * 4; i)}
+\DoxyCodeLine{00214         \{}
+\DoxyCodeLine{00215             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} bytes[] = \{ \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}[i++], \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}[i++], \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}[i++], \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}[i++] \};}
+\DoxyCodeLine{00216             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} value;}
+\DoxyCodeLine{00217             std::memcpy(\&value, bytes, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00218             indices.push\_back((GLuint)value);}
+\DoxyCodeLine{00219         \}}
+\DoxyCodeLine{00220     \}}
+\DoxyCodeLine{00221     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (componentType == 5123)}
+\DoxyCodeLine{00222     \{}
+\DoxyCodeLine{00223         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = beginningOfData; i < byteOffset + accByteOffset + count * 2; i)}
+\DoxyCodeLine{00224         \{}
+\DoxyCodeLine{00225             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} bytes[] = \{ \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}[i++], \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}[i++] \};}
+\DoxyCodeLine{00226             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} value;}
+\DoxyCodeLine{00227             std::memcpy(\&value, bytes, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short}));}
+\DoxyCodeLine{00228             indices.push\_back((GLuint)value);}
+\DoxyCodeLine{00229         \}}
+\DoxyCodeLine{00230     \}}
+\DoxyCodeLine{00231     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (componentType == 5122)}
+\DoxyCodeLine{00232     \{}
+\DoxyCodeLine{00233         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = beginningOfData; i < byteOffset + accByteOffset + count * 2; i)}
+\DoxyCodeLine{00234         \{}
+\DoxyCodeLine{00235             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} bytes[] = \{ \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}[i++], \mbox{\hyperlink{class_model_afecce629c8abf1886b6776cbdd836b7f}{data}}[i++] \};}
+\DoxyCodeLine{00236             \textcolor{keywordtype}{short} value;}
+\DoxyCodeLine{00237             std::memcpy(\&value, bytes, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{short}));}
+\DoxyCodeLine{00238             indices.push\_back((GLuint)value);}
+\DoxyCodeLine{00239         \}}
+\DoxyCodeLine{00240     \}}
+\DoxyCodeLine{00241 }
+\DoxyCodeLine{00242     \textcolor{keywordflow}{return} indices;}
+\DoxyCodeLine{00243 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_model_ac96ce2975c29078462e914b8d4148015}\label{class_model_ac96ce2975c29078462e914b8d4148015}} 
+\index{Model@{Model}!getTextures@{getTextures}}
+\index{getTextures@{getTextures}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{getTextures()}{getTextures()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$ Model\+::get\+Textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyNote}{Note}
+Extracts \mbox{\hyperlink{class_texture}{Texture}} from json file.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00245}{245}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00246 \{}
+\DoxyCodeLine{00248     }
+\DoxyCodeLine{00249     std::vector<Texture> textures;}
+\DoxyCodeLine{00250 }
+\DoxyCodeLine{00251     std::string fileStr = std::string(\mbox{\hyperlink{class_model_a985ac61fad8fcb5baa96f4c9e396a2a2}{file}});}
+\DoxyCodeLine{00252     std::string fileDirectory = fileStr.substr(0, fileStr.find\_last\_of(\textcolor{charliteral}{'/'}) + 1);}
+\DoxyCodeLine{00253 }
+\DoxyCodeLine{00254     \textcolor{comment}{// Go over all images}}
+\DoxyCodeLine{00255     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}images"{}}].size(); i++)}
+\DoxyCodeLine{00256     \{}
+\DoxyCodeLine{00257         \textcolor{comment}{// uri of current texture}}
+\DoxyCodeLine{00258         std::string texPath = \mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}images"{}}][i][\textcolor{stringliteral}{"{}uri"{}}];}
+\DoxyCodeLine{00259 }
+\DoxyCodeLine{00260         \textcolor{comment}{// Check if the texture has already been loaded}}
+\DoxyCodeLine{00261         \textcolor{keywordtype}{bool} skip = \textcolor{keyword}{false};}
+\DoxyCodeLine{00262         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{class_model_a646427b6fff817a86fc88954117d3283}{loadedTexName}}.size(); j++)}
+\DoxyCodeLine{00263         \{}
+\DoxyCodeLine{00264             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_model_a646427b6fff817a86fc88954117d3283}{loadedTexName}}[j] == texPath)}
+\DoxyCodeLine{00265             \{}
+\DoxyCodeLine{00266                 textures.push\_back(\mbox{\hyperlink{class_model_a78e1ecbb6ab9db1b39ac80fa46123de2}{loadedTex}}[j]);}
+\DoxyCodeLine{00267                 skip = \textcolor{keyword}{true};}
+\DoxyCodeLine{00268                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00269             \}}
+\DoxyCodeLine{00270         \}}
+\DoxyCodeLine{00271 }
+\DoxyCodeLine{00272         \textcolor{comment}{// If the texture has been loaded, skip this}}
+\DoxyCodeLine{00273         \textcolor{keywordflow}{if} (!skip)}
+\DoxyCodeLine{00274         \{}
+\DoxyCodeLine{00275             \textcolor{comment}{// Load diffuse texture}}
+\DoxyCodeLine{00276             \textcolor{keywordflow}{if} (texPath.find(\textcolor{stringliteral}{"{}baseColor"{}}) != std::string::npos || texPath.find(\textcolor{stringliteral}{"{}diffuse"{}}) != std::string::npos)}
+\DoxyCodeLine{00277             \{}
+\DoxyCodeLine{00278                 \mbox{\hyperlink{class_texture}{Texture}} diffuse = \mbox{\hyperlink{class_texture}{Texture}}((fileDirectory + texPath).c\_str(), \textcolor{stringliteral}{"{}diffuse"{}}, \mbox{\hyperlink{class_model_a78e1ecbb6ab9db1b39ac80fa46123de2}{loadedTex}}.size());}
+\DoxyCodeLine{00279                 textures.push\_back(diffuse);}
+\DoxyCodeLine{00280                 \mbox{\hyperlink{class_model_a78e1ecbb6ab9db1b39ac80fa46123de2}{loadedTex}}.push\_back(diffuse);}
+\DoxyCodeLine{00281                 \mbox{\hyperlink{class_model_a646427b6fff817a86fc88954117d3283}{loadedTexName}}.push\_back(texPath);}
+\DoxyCodeLine{00282             \}}
+\DoxyCodeLine{00283             \textcolor{comment}{// Load specular texture}}
+\DoxyCodeLine{00284             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (texPath.find(\textcolor{stringliteral}{"{}metallicRoughness"{}}) != std::string::npos || texPath.find(\textcolor{stringliteral}{"{}specular"{}}) != std::string::npos)}
+\DoxyCodeLine{00285             \{}
+\DoxyCodeLine{00286                 \mbox{\hyperlink{class_texture}{Texture}} specular = \mbox{\hyperlink{class_texture}{Texture}}((fileDirectory + texPath).c\_str(), \textcolor{stringliteral}{"{}specular"{}}, \mbox{\hyperlink{class_model_a78e1ecbb6ab9db1b39ac80fa46123de2}{loadedTex}}.size());}
+\DoxyCodeLine{00287                 textures.push\_back(specular);}
+\DoxyCodeLine{00288                 \mbox{\hyperlink{class_model_a78e1ecbb6ab9db1b39ac80fa46123de2}{loadedTex}}.push\_back(specular);}
+\DoxyCodeLine{00289                 \mbox{\hyperlink{class_model_a646427b6fff817a86fc88954117d3283}{loadedTexName}}.push\_back(texPath);}
+\DoxyCodeLine{00290             \}}
+\DoxyCodeLine{00291         \}}
+\DoxyCodeLine{00292     \}}
+\DoxyCodeLine{00293 }
+\DoxyCodeLine{00294     \textcolor{keywordflow}{return} textures;}
+\DoxyCodeLine{00295 \} }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_model_a9cb33404aeae6749dedbd5312df85102}\label{class_model_a9cb33404aeae6749dedbd5312df85102}} 
+\index{Model@{Model}!groupFloatsVec2@{groupFloatsVec2}}
+\index{groupFloatsVec2@{groupFloatsVec2}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{groupFloatsVec2()}{groupFloatsVec2()}}
+{\footnotesize\ttfamily std\+::vector$<$ glm\+::vec2 $>$ Model\+::group\+Floats\+Vec2 (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{float\+Vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyNote}{Note}
+Used in assembly for grouping floats into vec2.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00323}{323}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00324 \{}
+\DoxyCodeLine{00326     }
+\DoxyCodeLine{00327     std::vector<glm::vec2> vectors;}
+\DoxyCodeLine{00328     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < floatVec.size(); i)}
+\DoxyCodeLine{00329     \{}
+\DoxyCodeLine{00330         vectors.push\_back(glm::vec2(floatVec[i++], floatVec[i++]));}
+\DoxyCodeLine{00331     \}}
+\DoxyCodeLine{00332     \textcolor{keywordflow}{return} vectors;}
+\DoxyCodeLine{00333 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_model_ae3242e8e5341b9f70026ed9fbcd86a2c}\label{class_model_ae3242e8e5341b9f70026ed9fbcd86a2c}} 
+\index{Model@{Model}!groupFloatsVec3@{groupFloatsVec3}}
+\index{groupFloatsVec3@{groupFloatsVec3}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{groupFloatsVec3()}{groupFloatsVec3()}}
+{\footnotesize\ttfamily std\+::vector$<$ glm\+::vec3 $>$ Model\+::group\+Floats\+Vec3 (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{float\+Vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyNote}{Note}
+Used in assembly for grouping floats into vec3.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00335}{335}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00336 \{}
+\DoxyCodeLine{00338 }
+\DoxyCodeLine{00339     std::vector<glm::vec3> vectors;}
+\DoxyCodeLine{00340     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < floatVec.size(); i)}
+\DoxyCodeLine{00341     \{}
+\DoxyCodeLine{00342         vectors.push\_back(glm::vec3(floatVec[i++], floatVec[i++], floatVec[i++]));}
+\DoxyCodeLine{00343     \}}
+\DoxyCodeLine{00344     \textcolor{keywordflow}{return} vectors;}
+\DoxyCodeLine{00345 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_model_ad48c883141b747e5a958d28562ff4090}\label{class_model_ad48c883141b747e5a958d28562ff4090}} 
+\index{Model@{Model}!groupFloatsVec4@{groupFloatsVec4}}
+\index{groupFloatsVec4@{groupFloatsVec4}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{groupFloatsVec4()}{groupFloatsVec4()}}
+{\footnotesize\ttfamily std\+::vector$<$ glm\+::vec4 $>$ Model\+::group\+Floats\+Vec4 (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{float\+Vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyNote}{Note}
+Used in assembly for grouping floats into vec4.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00347}{347}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00348 \{}
+\DoxyCodeLine{00350     }
+\DoxyCodeLine{00351     std::vector<glm::vec4> vectors;}
+\DoxyCodeLine{00352     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < floatVec.size(); i)}
+\DoxyCodeLine{00353     \{}
+\DoxyCodeLine{00354         vectors.push\_back(glm::vec4(floatVec[i++], floatVec[i++], floatVec[i++], floatVec[i++]));}
+\DoxyCodeLine{00355     \}}
+\DoxyCodeLine{00356     \textcolor{keywordflow}{return} vectors;}
+\DoxyCodeLine{00357 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_model_a39eee214e7a7e84f5c017178cc3d3aff}\label{class_model_a39eee214e7a7e84f5c017178cc3d3aff}} 
+\index{Model@{Model}!loadMesh@{loadMesh}}
+\index{loadMesh@{loadMesh}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{loadMesh()}{loadMesh()}}
+{\footnotesize\ttfamily void Model\+::load\+Mesh (\begin{DoxyParamCaption}\item[{unsigned int}]{ind\+Mesh }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyNote}{Note}
+Used in converting json structure info to \mbox{\hyperlink{class_mesh}{Mesh}} Class based vertices, indices and Textures.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031 \{}
+\DoxyCodeLine{00033     }
+\DoxyCodeLine{00034     \textcolor{comment}{// Get all accessor indices }}
+\DoxyCodeLine{00035     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} posAccInd = \mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}meshes"{}}][indMesh][\textcolor{stringliteral}{"{}primitives"{}}][0][\textcolor{stringliteral}{"{}attributes"{}}][\textcolor{stringliteral}{"{}POSITION"{}}];}
+\DoxyCodeLine{00036     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} normalAccInd = \mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}meshes"{}}][indMesh][\textcolor{stringliteral}{"{}primitives"{}}][0][\textcolor{stringliteral}{"{}attributes"{}}][\textcolor{stringliteral}{"{}NORMAL"{}}];}
+\DoxyCodeLine{00037     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} texAccInd = \mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}meshes"{}}][indMesh][\textcolor{stringliteral}{"{}primitives"{}}][0][\textcolor{stringliteral}{"{}attributes"{}}][\textcolor{stringliteral}{"{}TEXCOORD\_0"{}}];}
+\DoxyCodeLine{00038     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indAccInd = \mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}meshes"{}}][indMesh][\textcolor{stringliteral}{"{}primitives"{}}][0][\textcolor{stringliteral}{"{}indices"{}}];}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040     \textcolor{comment}{// Use accessor indices to get all vertices components}}
+\DoxyCodeLine{00041     std::vector<float> posVec = \mbox{\hyperlink{class_model_a1a7e8b5ceb36dc024f0ff6d004f6c4a8}{getFloats}}(\mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}accessors"{}}][posAccInd]);}
+\DoxyCodeLine{00042     std::vector<glm::vec3> positions = \mbox{\hyperlink{class_model_ae3242e8e5341b9f70026ed9fbcd86a2c}{groupFloatsVec3}}(posVec);}
+\DoxyCodeLine{00043     std::vector<float> normalVec = \mbox{\hyperlink{class_model_a1a7e8b5ceb36dc024f0ff6d004f6c4a8}{getFloats}}(\mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}accessors"{}}][normalAccInd]);}
+\DoxyCodeLine{00044     std::vector<glm::vec3> normals = \mbox{\hyperlink{class_model_ae3242e8e5341b9f70026ed9fbcd86a2c}{groupFloatsVec3}}(normalVec);}
+\DoxyCodeLine{00045     std::vector<float> texVec = \mbox{\hyperlink{class_model_a1a7e8b5ceb36dc024f0ff6d004f6c4a8}{getFloats}}(\mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}accessors"{}}][texAccInd]);}
+\DoxyCodeLine{00046     std::vector<glm::vec2> texUVs = \mbox{\hyperlink{class_model_a9cb33404aeae6749dedbd5312df85102}{groupFloatsVec2}}(texVec);}
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{00048     \textcolor{comment}{// Combine all the vertex components and also get the indices and textures}}
+\DoxyCodeLine{00049     std::vector<Vertex> vertices = \mbox{\hyperlink{class_model_a6b6a437fcafdc52ef356e991ba248428}{assembleVertices}}(positions, normals, texUVs);}
+\DoxyCodeLine{00050     std::vector<GLuint> indices = \mbox{\hyperlink{class_model_a7236effae5cb0433f51131bfedd936ba}{getIndices}}(\mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}accessors"{}}][indAccInd]);}
+\DoxyCodeLine{00051     std::vector<Texture> textures = \mbox{\hyperlink{class_model_ac96ce2975c29078462e914b8d4148015}{getTextures}}();}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053     \textcolor{comment}{// Combine the vertices, indices, and textures into a mesh}}
+\DoxyCodeLine{00054     \mbox{\hyperlink{class_model_a538e42901dcfba59471072a48a162163}{meshes}}.push\_back(\mbox{\hyperlink{class_mesh}{Mesh}}(vertices, indices, textures));}
+\DoxyCodeLine{00055 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_model_a7129b5377e1f85e156a992ae00fa4d80}\label{class_model_a7129b5377e1f85e156a992ae00fa4d80}} 
+\index{Model@{Model}!traverseNode@{traverseNode}}
+\index{traverseNode@{traverseNode}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{traverseNode()}{traverseNode()}}
+{\footnotesize\ttfamily void Model\+::traverse\+Node (\begin{DoxyParamCaption}\item[{unsigned int}]{next\+Node,  }\item[{glm\+::mat4}]{matrix = {\ttfamily glm\+:\+:mat4(1.0f)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyNote}{Note}
+To travel across nodes present in json file tree for models in gltf.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058 \{}
+\DoxyCodeLine{00060     }
+\DoxyCodeLine{00061     \textcolor{comment}{// Current node}}
+\DoxyCodeLine{00062     \mbox{\hyperlink{_model_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} node = \mbox{\hyperlink{class_model_ad03e700ad006768b85acebdd69ae94fa}{JSON}}[\textcolor{stringliteral}{"{}nodes"{}}][nextNode];}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064     \textcolor{comment}{// Get translation if it exists}}
+\DoxyCodeLine{00065     glm::vec3 translation = glm::vec3(0.0f, 0.0f, 0.0f);}
+\DoxyCodeLine{00066     \textcolor{keywordflow}{if} (node.find(\textcolor{stringliteral}{"{}translation"{}}) != node.end())}
+\DoxyCodeLine{00067     \{}
+\DoxyCodeLine{00068         \textcolor{keywordtype}{float} transValues[3];}
+\DoxyCodeLine{00069         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < node[\textcolor{stringliteral}{"{}translation"{}}].size(); i++)}
+\DoxyCodeLine{00070             transValues[i] = (node[\textcolor{stringliteral}{"{}translation"{}}][i]);}
+\DoxyCodeLine{00071         translation = glm::make\_vec3(transValues);}
+\DoxyCodeLine{00072     \}}
+\DoxyCodeLine{00073     \textcolor{comment}{// Get quaternion if it exists}}
+\DoxyCodeLine{00074     glm::quat rotation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f);}
+\DoxyCodeLine{00075     \textcolor{keywordflow}{if} (node.find(\textcolor{stringliteral}{"{}rotation"{}}) != node.end())}
+\DoxyCodeLine{00076     \{}
+\DoxyCodeLine{00077         \textcolor{keywordtype}{float} rotValues[4] =}
+\DoxyCodeLine{00078         \{}
+\DoxyCodeLine{00079             node[\textcolor{stringliteral}{"{}rotation"{}}][3],}
+\DoxyCodeLine{00080             node[\textcolor{stringliteral}{"{}rotation"{}}][0],}
+\DoxyCodeLine{00081             node[\textcolor{stringliteral}{"{}rotation"{}}][1],}
+\DoxyCodeLine{00082             node[\textcolor{stringliteral}{"{}rotation"{}}][2]}
+\DoxyCodeLine{00083         \};}
+\DoxyCodeLine{00084         rotation = glm::make\_quat(rotValues);}
+\DoxyCodeLine{00085     \}}
+\DoxyCodeLine{00086     \textcolor{comment}{// Get scale if it exists}}
+\DoxyCodeLine{00087     glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f);}
+\DoxyCodeLine{00088     \textcolor{keywordflow}{if} (node.find(\textcolor{stringliteral}{"{}scale"{}}) != node.end())}
+\DoxyCodeLine{00089     \{}
+\DoxyCodeLine{00090         \textcolor{keywordtype}{float} scaleValues[3];}
+\DoxyCodeLine{00091         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < node[\textcolor{stringliteral}{"{}scale"{}}].size(); i++)}
+\DoxyCodeLine{00092             scaleValues[i] = (node[\textcolor{stringliteral}{"{}scale"{}}][i]);}
+\DoxyCodeLine{00093         scale = glm::make\_vec3(scaleValues);}
+\DoxyCodeLine{00094     \}}
+\DoxyCodeLine{00095     \textcolor{comment}{// Get matrix if it exists}}
+\DoxyCodeLine{00096     glm::mat4 matNode = glm::mat4(1.0f);}
+\DoxyCodeLine{00097     \textcolor{keywordflow}{if} (node.find(\textcolor{stringliteral}{"{}matrix"{}}) != node.end())}
+\DoxyCodeLine{00098     \{}
+\DoxyCodeLine{00099         \textcolor{keywordtype}{float} matValues[16];}
+\DoxyCodeLine{00100         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < node[\textcolor{stringliteral}{"{}matrix"{}}].size(); i++)}
+\DoxyCodeLine{00101             matValues[i] = (node[\textcolor{stringliteral}{"{}matrix"{}}][i]);}
+\DoxyCodeLine{00102         matNode = glm::make\_mat4(matValues);}
+\DoxyCodeLine{00103     \}}
+\DoxyCodeLine{00104 }
+\DoxyCodeLine{00105     \textcolor{comment}{// Initialize matrices}}
+\DoxyCodeLine{00106     glm::mat4 trans = glm::mat4(1.0f);}
+\DoxyCodeLine{00107     glm::mat4 rot = glm::mat4(1.0f);}
+\DoxyCodeLine{00108     glm::mat4 sca = glm::mat4(1.0f);}
+\DoxyCodeLine{00109     }
+\DoxyCodeLine{00110     \textcolor{comment}{// Use translation, rotation, and scale to change the initialized matrices}}
+\DoxyCodeLine{00111     trans = glm::translate(trans, translation);}
+\DoxyCodeLine{00112     rot = glm::mat4\_cast(rotation);}
+\DoxyCodeLine{00113     sca = glm::scale(sca, scale);}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{00115     \textcolor{comment}{// Multiply all matrices together}}
+\DoxyCodeLine{00116     glm::mat4 matNextNode = matrix * matNode * trans * rot * sca;}
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{00118     \textcolor{comment}{// Check if the node contains a mesh and if it does load it}}
+\DoxyCodeLine{00119     \textcolor{keywordflow}{if} (node.find(\textcolor{stringliteral}{"{}mesh"{}}) != node.end())}
+\DoxyCodeLine{00120     \{}
+\DoxyCodeLine{00121         \mbox{\hyperlink{class_model_a819bbf28d430fdc675b08ebbde36af4a}{translationsMeshes}}.push\_back(translation);}
+\DoxyCodeLine{00122         \mbox{\hyperlink{class_model_a246f56a4766ad19ef01295a142eeebbf}{rotationsMeshes}}.push\_back(rotation);}
+\DoxyCodeLine{00123         \mbox{\hyperlink{class_model_acd1c3bda68ce08e79031f45d2f3b5f35}{scalesMeshes}}.push\_back(scale);}
+\DoxyCodeLine{00124         \mbox{\hyperlink{class_model_a3b59570b1d1c848a531b74d8c85c76f7}{matricesMeshes}}.push\_back(matNextNode);}
+\DoxyCodeLine{00125 }
+\DoxyCodeLine{00126         \mbox{\hyperlink{class_model_a39eee214e7a7e84f5c017178cc3d3aff}{loadMesh}}(node[\textcolor{stringliteral}{"{}mesh"{}}]);}
+\DoxyCodeLine{00127     \}}
+\DoxyCodeLine{00128 }
+\DoxyCodeLine{00129     \textcolor{comment}{// Check if the node has children, and if it does, apply this function to them with the matNextNode}}
+\DoxyCodeLine{00130     \textcolor{keywordflow}{if} (node.find(\textcolor{stringliteral}{"{}children"{}}) != node.end())}
+\DoxyCodeLine{00131     \{}
+\DoxyCodeLine{00132         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < node[\textcolor{stringliteral}{"{}children"{}}].size(); i++)}
+\DoxyCodeLine{00133             \mbox{\hyperlink{class_model_a7129b5377e1f85e156a992ae00fa4d80}{traverseNode}}(node[\textcolor{stringliteral}{"{}children"{}}][i], matNextNode);}
+\DoxyCodeLine{00134     \}}
+\DoxyCodeLine{00135 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_model_afecce629c8abf1886b6776cbdd836b7f}\label{class_model_afecce629c8abf1886b6776cbdd836b7f}} 
+\index{Model@{Model}!data@{data}}
+\index{data@{data}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily std\+::vector$<$unsigned char$>$ Model\+::data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00020}{20}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+\mbox{\Hypertarget{class_model_a985ac61fad8fcb5baa96f4c9e396a2a2}\label{class_model_a985ac61fad8fcb5baa96f4c9e396a2a2}} 
+\index{Model@{Model}!file@{file}}
+\index{file@{file}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily const char$\ast$ Model\+::file\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00019}{19}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+\mbox{\Hypertarget{class_model_ad03e700ad006768b85acebdd69ae94fa}\label{class_model_ad03e700ad006768b85acebdd69ae94fa}} 
+\index{Model@{Model}!JSON@{JSON}}
+\index{JSON@{JSON}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{JSON}{JSON}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_model_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} Model\+::\+JSON\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00021}{21}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+\mbox{\Hypertarget{class_model_a78e1ecbb6ab9db1b39ac80fa46123de2}\label{class_model_a78e1ecbb6ab9db1b39ac80fa46123de2}} 
+\index{Model@{Model}!loadedTex@{loadedTex}}
+\index{loadedTex@{loadedTex}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{loadedTex}{loadedTex}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_texture}{Texture}}$>$ Model\+::loaded\+Tex\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00032}{32}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+\mbox{\Hypertarget{class_model_a646427b6fff817a86fc88954117d3283}\label{class_model_a646427b6fff817a86fc88954117d3283}} 
+\index{Model@{Model}!loadedTexName@{loadedTexName}}
+\index{loadedTexName@{loadedTexName}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{loadedTexName}{loadedTexName}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Model\+::loaded\+Tex\+Name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00031}{31}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+\mbox{\Hypertarget{class_model_a3b59570b1d1c848a531b74d8c85c76f7}\label{class_model_a3b59570b1d1c848a531b74d8c85c76f7}} 
+\index{Model@{Model}!matricesMeshes@{matricesMeshes}}
+\index{matricesMeshes@{matricesMeshes}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{matricesMeshes}{matricesMeshes}}
+{\footnotesize\ttfamily std\+::vector$<$glm\+::mat4$>$ Model\+::matrices\+Meshes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00028}{28}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+\mbox{\Hypertarget{class_model_a538e42901dcfba59471072a48a162163}\label{class_model_a538e42901dcfba59471072a48a162163}} 
+\index{Model@{Model}!meshes@{meshes}}
+\index{meshes@{meshes}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{meshes}{meshes}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_mesh}{Mesh}}$>$ Model\+::meshes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00024}{24}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+\mbox{\Hypertarget{class_model_a246f56a4766ad19ef01295a142eeebbf}\label{class_model_a246f56a4766ad19ef01295a142eeebbf}} 
+\index{Model@{Model}!rotationsMeshes@{rotationsMeshes}}
+\index{rotationsMeshes@{rotationsMeshes}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{rotationsMeshes}{rotationsMeshes}}
+{\footnotesize\ttfamily std\+::vector$<$glm\+::quat$>$ Model\+::rotations\+Meshes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00026}{26}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+\mbox{\Hypertarget{class_model_acd1c3bda68ce08e79031f45d2f3b5f35}\label{class_model_acd1c3bda68ce08e79031f45d2f3b5f35}} 
+\index{Model@{Model}!scalesMeshes@{scalesMeshes}}
+\index{scalesMeshes@{scalesMeshes}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{scalesMeshes}{scalesMeshes}}
+{\footnotesize\ttfamily std\+::vector$<$glm\+::vec3$>$ Model\+::scales\+Meshes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00027}{27}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+\mbox{\Hypertarget{class_model_a819bbf28d430fdc675b08ebbde36af4a}\label{class_model_a819bbf28d430fdc675b08ebbde36af4a}} 
+\index{Model@{Model}!translationsMeshes@{translationsMeshes}}
+\index{translationsMeshes@{translationsMeshes}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{translationsMeshes}{translationsMeshes}}
+{\footnotesize\ttfamily std\+::vector$<$glm\+::vec3$>$ Model\+::translations\+Meshes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00025}{25}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Project1/\mbox{\hyperlink{_model_8h}{Model.\+h}}\item 
+D\+:/\+Project1/\mbox{\hyperlink{_model_8cpp}{Model.\+cpp}}\end{DoxyCompactItemize}

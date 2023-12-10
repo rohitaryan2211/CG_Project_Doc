@@ -1,0 +1,49 @@
+\hypertarget{shader_class_8h}{}\doxysection{D\+:/\+Project1/shader\+Class.h File Reference}
+\label{shader_class_8h}\index{D:/Project1/shaderClass.h@{D:/Project1/shaderClass.h}}
+{\ttfamily \#include $<$glad/glad.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cerrno$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_shader}{Shader}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{shader_class_8h_a0c4b002426f3eb09187c4a7c5c577a89}{get\+\_\+file\+\_\+contents}} (const char $\ast$filename)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{shader_class_8h_a0c4b002426f3eb09187c4a7c5c577a89}\label{shader_class_8h_a0c4b002426f3eb09187c4a7c5c577a89}} 
+\index{shaderClass.h@{shaderClass.h}!get\_file\_contents@{get\_file\_contents}}
+\index{get\_file\_contents@{get\_file\_contents}!shaderClass.h@{shaderClass.h}}
+\doxysubsubsection{\texorpdfstring{get\_file\_contents()}{get\_file\_contents()}}
+{\footnotesize\ttfamily std\+::string get\+\_\+file\+\_\+contents (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shader_class_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{shader_class_8cpp_source}{shader\+Class.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005 \{}
+\DoxyCodeLine{00006     std::ifstream in(filename, std::ios::binary);}
+\DoxyCodeLine{00007     \textcolor{keywordflow}{if} (in)}
+\DoxyCodeLine{00008     \{}
+\DoxyCodeLine{00009         std::string contents;}
+\DoxyCodeLine{00010         in.seekg(0, std::ios::end);}
+\DoxyCodeLine{00011         contents.resize(in.tellg());}
+\DoxyCodeLine{00012         in.seekg(0, std::ios::beg);}
+\DoxyCodeLine{00013         in.read(\&contents[0], contents.size());}
+\DoxyCodeLine{00014         in.close();}
+\DoxyCodeLine{00015         \textcolor{keywordflow}{return}(contents);}
+\DoxyCodeLine{00016     \}}
+\DoxyCodeLine{00017     \textcolor{keywordflow}{throw}(errno);}
+\DoxyCodeLine{00018 \}}
+
+\end{DoxyCode}

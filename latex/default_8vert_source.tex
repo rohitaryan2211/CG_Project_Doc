@@ -1,0 +1,58 @@
+\hypertarget{default_8vert_source}{}\doxysection{default.\+vert}
+\label{default_8vert_source}\index{D:/Project1/default.vert@{D:/Project1/default.vert}}
+\mbox{\hyperlink{default_8vert}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00001}00001 \#version 330 core}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00003}00003 // Positions/Coordinates}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00004}00004 layout (location = 0) in vec3 aPos;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00005}00005 // Normals (not necessarily normalized)}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00006}00006 layout (location = 1) in vec3 aNormal;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00007}00007 // Colors}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00008}00008 layout (location = 2) in vec3 aColor;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00009}00009 // Texture Coordinates}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00010}00010 layout (location = 3) in vec2 aTex;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00013}00013 // Outputs the current position for the Fragment Shader}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00014}00014 out vec3 crntPos;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00015}00015 // Outputs the normal for the Fragment Shader}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00016}00016 out vec3 Normal;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00017}00017 // Outputs the color for the Fragment Shader}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00018}00018 out vec3 color;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00019}00019 // Outputs the texture coordinates to the Fragment Shader}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00020}00020 out vec2 texCoord;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00021}00021 // Outputs the fragment position of the light}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00022}00022 out vec4 fragPosLight;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00026}00026 // Imports the camera matrix}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00027}00027 uniform mat4 camMatrix;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00028}00028 // Imports the transformation matrices}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00029}00029 uniform mat4 model;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00030}00030 uniform mat4 translation;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00031}00031 uniform mat4 rotation;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00032}00032 uniform mat4 scale;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00033}00033 // Imports the light matrix}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00034}00034 uniform mat4 lightProjection;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00037}00037 void main()}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00038}00038 \{}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00039}00039     // Calculates current position}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00040}00040     crntPos = vec3(model * translation * rotation * scale * vec4(aPos, 1.0f));}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00041}00041     // Assigns the normal from the Vertex Data to "{}Normal"{}}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00042}00042     Normal = aNormal;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00043}00043     // Assigns the colors from the Vertex Data to "{}color"{}}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00044}00044     color = aColor;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00045}00045     // Assigns the texture coordinates from the Vertex Data to "{}texCoord"{}}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00046}00046     texCoord = mat2(0.0, -\/1.0, 1.0, 0.0) * aTex;}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00047}00047     // Calculates the position of the light fragment for the fragment shader}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00048}00048     fragPosLight = lightProjection * vec4(crntPos, 1.0f);}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00049}00049     }
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00050}00050     // Outputs the positions/coordinates of all vertices}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00051}00051     gl\_Position = camMatrix * vec4(crntPos, 1.0);}
+\DoxyCodeLine{\Hypertarget{default_8vert_source_l00052}00052 \}}
+
+\end{DoxyCode}

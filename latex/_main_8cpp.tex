@@ -1,0 +1,392 @@
+\hypertarget{_main_8cpp}{}\doxysection{D\+:/\+Project1/\+Main.cpp File Reference}
+\label{_main_8cpp}\index{D:/Project1/Main.cpp@{D:/Project1/Main.cpp}}
+{\ttfamily \#include \char`\"{}Model.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned int \mbox{\hyperlink{_main_8cpp_a97e31b8e4bdfc1ab8145a3298c18a9e5}{width}} = 1000
+\item 
+const unsigned int \mbox{\hyperlink{_main_8cpp_add486058aba19977581ce8fe4bab90b6}{height}} = 1000
+\item 
+unsigned int \mbox{\hyperlink{_main_8cpp_ae3f31aa39921829eefb3c77d8ec1008e}{samples}} = 8
+\item 
+float \mbox{\hyperlink{_main_8cpp_a44978e15ba7fdb6b664ea10411fbe69d}{gamma}} = 2.\+2f
+\item 
+float \mbox{\hyperlink{_main_8cpp_aa7cb32507a2c180b10284002b0b18fbd}{rectangle\+Vertices}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{Main.cpp@{Main.cpp}!main@{main}}
+\index{main@{main}!Main.cpp@{Main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_main_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{_main_8cpp_source}{Main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027 \{}
+\DoxyCodeLine{00028     \textcolor{comment}{// Initialize GLFW}}
+\DoxyCodeLine{00029     glfwInit();}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031     \textcolor{comment}{// Tell GLFW what version of OpenGL we are using }}
+\DoxyCodeLine{00032     \textcolor{comment}{// In this case we are using OpenGL 3.3}}
+\DoxyCodeLine{00033     glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MAJOR, 3);}
+\DoxyCodeLine{00034     glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MINOR, 3);}
+\DoxyCodeLine{00035     \textcolor{comment}{// Tell GLFW we are using the CORE profile}}
+\DoxyCodeLine{00036     \textcolor{comment}{// So that means we only have the modern functions}}
+\DoxyCodeLine{00037     glfwWindowHint(GLFW\_OPENGL\_PROFILE, GLFW\_OPENGL\_CORE\_PROFILE);}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039     \textcolor{comment}{// Create a GLFWwindow object of 800 by 800 pixels, naming it "{}Project Window"{}}}
+\DoxyCodeLine{00040     GLFWwindow* window = glfwCreateWindow(\mbox{\hyperlink{_main_8cpp_a97e31b8e4bdfc1ab8145a3298c18a9e5}{width}}, \mbox{\hyperlink{_main_8cpp_add486058aba19977581ce8fe4bab90b6}{height}}, \textcolor{stringliteral}{"{}Project Window"{}}, NULL, NULL);}
+\DoxyCodeLine{00041     \textcolor{comment}{// Error check if the window fails to create}}
+\DoxyCodeLine{00042     \textcolor{keywordflow}{if} (window == NULL)}
+\DoxyCodeLine{00043     \{}
+\DoxyCodeLine{00044         std::cout << \textcolor{stringliteral}{"{}Failed to create GLFW window"{}} << std::endl;}
+\DoxyCodeLine{00045         glfwTerminate();}
+\DoxyCodeLine{00046         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{00047     \}}
+\DoxyCodeLine{00048     \textcolor{comment}{// Introduce the window into the current context}}
+\DoxyCodeLine{00049     glfwMakeContextCurrent(window);}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051     \textcolor{comment}{//Load GLAD so it configures OpenGL}}
+\DoxyCodeLine{00052     \mbox{\hyperlink{glad_8c_a137453294a2756a898902ef399b3d437}{gladLoadGL}}();}
+\DoxyCodeLine{00053     \textcolor{comment}{// Specify the viewport of OpenGL in the Window}}
+\DoxyCodeLine{00054     \textcolor{comment}{// In this case the viewport goes from x = 0, y = 0, to x = 800, y = 800}}
+\DoxyCodeLine{00055     glViewport(0, 0, \mbox{\hyperlink{_main_8cpp_a97e31b8e4bdfc1ab8145a3298c18a9e5}{width}}, \mbox{\hyperlink{_main_8cpp_add486058aba19977581ce8fe4bab90b6}{height}});}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057 }
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{00059     \textcolor{comment}{// Generates Shader object using shaders defualt.vert and default.frag}}
+\DoxyCodeLine{00060     \mbox{\hyperlink{class_shader}{Shader}} shaderProgram(\textcolor{stringliteral}{"{}default.vert"{}}, \textcolor{stringliteral}{"{}default.frag"{}});}
+\DoxyCodeLine{00061     \mbox{\hyperlink{class_shader}{Shader}} framebufferProgram(\textcolor{stringliteral}{"{}framebuffer.vert"{}}, \textcolor{stringliteral}{"{}framebuffer.frag"{}});}
+\DoxyCodeLine{00062     \mbox{\hyperlink{class_shader}{Shader}} shadowMapProgram(\textcolor{stringliteral}{"{}shadowMap.vert"{}}, \textcolor{stringliteral}{"{}shadowMap.frag"{}});}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065     glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);}
+\DoxyCodeLine{00066     glm::vec3 lightPos = glm::vec3(0.5f, 0.5f, 0.5f);}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069     shaderProgram.Activate();}
+\DoxyCodeLine{00070     glUniform4f(glGetUniformLocation(shaderProgram.ID, \textcolor{stringliteral}{"{}lightColor"{}}), lightColor.x, lightColor.y, lightColor.z, lightColor.w);}
+\DoxyCodeLine{00071     glUniform3f(glGetUniformLocation(shaderProgram.ID, \textcolor{stringliteral}{"{}lightPos"{}}), lightPos.x, lightPos.y, lightPos.z);}
+\DoxyCodeLine{00072     framebufferProgram.Activate();}
+\DoxyCodeLine{00073     glUniform1i(glGetUniformLocation(framebufferProgram.ID, \textcolor{stringliteral}{"{}screenTexture"{}}), 0);}
+\DoxyCodeLine{00074     glUniform1f(glGetUniformLocation(framebufferProgram.ID, \textcolor{stringliteral}{"{}gamma"{}}), \mbox{\hyperlink{_main_8cpp_a44978e15ba7fdb6b664ea10411fbe69d}{gamma}});}
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077     \textcolor{comment}{// Enables the Depth Buffer}}
+\DoxyCodeLine{00078     glEnable(GL\_DEPTH\_TEST);}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080     \textcolor{comment}{// Enables Multisampling}}
+\DoxyCodeLine{00081     glEnable(GL\_MULTISAMPLE);}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083     \textcolor{comment}{// Enables Cull Facing}}
+\DoxyCodeLine{00084     glEnable(GL\_CULL\_FACE);}
+\DoxyCodeLine{00085     \textcolor{comment}{// Keeps front faces}}
+\DoxyCodeLine{00086     glCullFace(GL\_FRONT);}
+\DoxyCodeLine{00087     \textcolor{comment}{// Uses counter clock-\/wise standard}}
+\DoxyCodeLine{00088     glFrontFace(GL\_CCW);}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090     \textcolor{comment}{// Creates camera object}}
+\DoxyCodeLine{00091     \mbox{\hyperlink{class_camera}{Camera}} camera(\mbox{\hyperlink{_main_8cpp_a97e31b8e4bdfc1ab8145a3298c18a9e5}{width}}, \mbox{\hyperlink{_main_8cpp_add486058aba19977581ce8fe4bab90b6}{height}}, glm::vec3(0.0f, 0.0f, 2.0f));}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093     \textcolor{comment}{// Load in a model}}
+\DoxyCodeLine{00094      \mbox{\hyperlink{class_model}{Model}} crow(\textcolor{stringliteral}{"{}models/crow/scene.gltf"{}});}
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00096 }
+\DoxyCodeLine{00097      \textcolor{comment}{// Prepare framebuffer rectangle VBO and VAO}}
+\DoxyCodeLine{00098      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} rectVAO, rectVBO;}
+\DoxyCodeLine{00099      glGenVertexArrays(1, \&rectVAO);}
+\DoxyCodeLine{00100      glGenBuffers(1, \&rectVBO);}
+\DoxyCodeLine{00101      glBindVertexArray(rectVAO);}
+\DoxyCodeLine{00102      glBindBuffer(GL\_ARRAY\_BUFFER, rectVBO);}
+\DoxyCodeLine{00103      glBufferData(GL\_ARRAY\_BUFFER, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{_main_8cpp_aa7cb32507a2c180b10284002b0b18fbd}{rectangleVertices}}), \&\mbox{\hyperlink{_main_8cpp_aa7cb32507a2c180b10284002b0b18fbd}{rectangleVertices}}, GL\_STATIC\_DRAW);}
+\DoxyCodeLine{00104      glEnableVertexAttribArray(0);}
+\DoxyCodeLine{00105      glVertexAttribPointer(0, 2, GL\_FLOAT, GL\_FALSE, 4 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}), (\textcolor{keywordtype}{void}*)0);}
+\DoxyCodeLine{00106      glEnableVertexAttribArray(1);}
+\DoxyCodeLine{00107      glVertexAttribPointer(1, 2, GL\_FLOAT, GL\_FALSE, 4 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}), (\textcolor{keywordtype}{void}*)(2 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{00108 }
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{00110 }
+\DoxyCodeLine{00111      \textcolor{comment}{// Variables to create periodic event for FPS displaying}}
+\DoxyCodeLine{00112      \textcolor{keywordtype}{double} prevTime = 0.0;}
+\DoxyCodeLine{00113      \textcolor{keywordtype}{double} crntTime = 0.0;}
+\DoxyCodeLine{00114      \textcolor{keywordtype}{double} timeDiff;}
+\DoxyCodeLine{00115      \textcolor{comment}{// Keeps track of the amount of frames in timeDiff}}
+\DoxyCodeLine{00116      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} counter = 0;}
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{00119      \textcolor{comment}{// Create Frame Buffer Object}}
+\DoxyCodeLine{00120      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} FBO;}
+\DoxyCodeLine{00121      glGenFramebuffers(1, \&FBO);}
+\DoxyCodeLine{00122      glBindFramebuffer(GL\_FRAMEBUFFER, FBO);}
+\DoxyCodeLine{00123 }
+\DoxyCodeLine{00124      \textcolor{comment}{// Create Framebuffer Texture}}
+\DoxyCodeLine{00125      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} framebufferTexture;}
+\DoxyCodeLine{00126      glGenTextures(1, \&framebufferTexture);}
+\DoxyCodeLine{00127      glBindTexture(GL\_TEXTURE\_2D\_MULTISAMPLE, framebufferTexture);}
+\DoxyCodeLine{00128      glTexImage2DMultisample(GL\_TEXTURE\_2D\_MULTISAMPLE, \mbox{\hyperlink{_main_8cpp_ae3f31aa39921829eefb3c77d8ec1008e}{samples}}, GL\_RGB16F, \mbox{\hyperlink{_main_8cpp_a97e31b8e4bdfc1ab8145a3298c18a9e5}{width}}, \mbox{\hyperlink{_main_8cpp_add486058aba19977581ce8fe4bab90b6}{height}}, GL\_TRUE);}
+\DoxyCodeLine{00129      glTexParameteri(GL\_TEXTURE\_2D\_MULTISAMPLE, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{00130      glTexParameteri(GL\_TEXTURE\_2D\_MULTISAMPLE, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{00131      glTexParameteri(GL\_TEXTURE\_2D\_MULTISAMPLE, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_EDGE); \textcolor{comment}{// Prevents edge bleeding}}
+\DoxyCodeLine{00132      glTexParameteri(GL\_TEXTURE\_2D\_MULTISAMPLE, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_EDGE); \textcolor{comment}{// Prevents edge bleeding}}
+\DoxyCodeLine{00133      glFramebufferTexture2D(GL\_FRAMEBUFFER, GL\_COLOR\_ATTACHMENT0, GL\_TEXTURE\_2D\_MULTISAMPLE, framebufferTexture, 0);}
+\DoxyCodeLine{00134 }
+\DoxyCodeLine{00135      \textcolor{comment}{// Create Render Buffer Object}}
+\DoxyCodeLine{00136      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} RBO;}
+\DoxyCodeLine{00137      glGenRenderbuffers(1, \&RBO);}
+\DoxyCodeLine{00138      glBindRenderbuffer(GL\_RENDERBUFFER, RBO);}
+\DoxyCodeLine{00139      glRenderbufferStorageMultisample(GL\_RENDERBUFFER, \mbox{\hyperlink{_main_8cpp_ae3f31aa39921829eefb3c77d8ec1008e}{samples}}, GL\_DEPTH24\_STENCIL8, \mbox{\hyperlink{_main_8cpp_a97e31b8e4bdfc1ab8145a3298c18a9e5}{width}}, \mbox{\hyperlink{_main_8cpp_add486058aba19977581ce8fe4bab90b6}{height}});}
+\DoxyCodeLine{00140      glFramebufferRenderbuffer(GL\_FRAMEBUFFER, GL\_DEPTH\_STENCIL\_ATTACHMENT, GL\_RENDERBUFFER, RBO);}
+\DoxyCodeLine{00141 }
+\DoxyCodeLine{00142 }
+\DoxyCodeLine{00143      \textcolor{comment}{// Error checking framebuffer}}
+\DoxyCodeLine{00144      \textcolor{keyword}{auto} fboStatus = glCheckFramebufferStatus(GL\_FRAMEBUFFER);}
+\DoxyCodeLine{00145      \textcolor{keywordflow}{if} (fboStatus != GL\_FRAMEBUFFER\_COMPLETE)}
+\DoxyCodeLine{00146          std::cout << \textcolor{stringliteral}{"{}Framebuffer error: "{}} << fboStatus << std::endl;}
+\DoxyCodeLine{00147 }
+\DoxyCodeLine{00148      \textcolor{comment}{// Create Frame Buffer Object}}
+\DoxyCodeLine{00149      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} postProcessingFBO;}
+\DoxyCodeLine{00150      glGenFramebuffers(1, \&postProcessingFBO);}
+\DoxyCodeLine{00151      glBindFramebuffer(GL\_FRAMEBUFFER, postProcessingFBO);}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153      \textcolor{comment}{// Create Framebuffer Texture}}
+\DoxyCodeLine{00154      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} postProcessingTexture;}
+\DoxyCodeLine{00155      glGenTextures(1, \&postProcessingTexture);}
+\DoxyCodeLine{00156      glBindTexture(GL\_TEXTURE\_2D, postProcessingTexture);}
+\DoxyCodeLine{00157      glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGB16F, \mbox{\hyperlink{_main_8cpp_a97e31b8e4bdfc1ab8145a3298c18a9e5}{width}}, \mbox{\hyperlink{_main_8cpp_add486058aba19977581ce8fe4bab90b6}{height}}, 0, GL\_RGB, GL\_UNSIGNED\_BYTE, NULL);}
+\DoxyCodeLine{00158      glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{00159      glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{00160      glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00161      glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00162      glFramebufferTexture2D(GL\_FRAMEBUFFER, GL\_COLOR\_ATTACHMENT0, GL\_TEXTURE\_2D, postProcessingTexture, 0);}
+\DoxyCodeLine{00163 }
+\DoxyCodeLine{00164      \textcolor{comment}{// Error checking framebuffer}}
+\DoxyCodeLine{00165      fboStatus = glCheckFramebufferStatus(GL\_FRAMEBUFFER);}
+\DoxyCodeLine{00166      \textcolor{keywordflow}{if} (fboStatus != GL\_FRAMEBUFFER\_COMPLETE)}
+\DoxyCodeLine{00167          std::cout << \textcolor{stringliteral}{"{}Post-\/Processing Framebuffer error: "{}} << fboStatus << std::endl;}
+\DoxyCodeLine{00168 }
+\DoxyCodeLine{00169      }
+\DoxyCodeLine{00170      \textcolor{comment}{// Framebuffer for Shadow Map}}
+\DoxyCodeLine{00171      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} shadowMapFBO;}
+\DoxyCodeLine{00172      glGenFramebuffers(1, \&shadowMapFBO);}
+\DoxyCodeLine{00173 }
+\DoxyCodeLine{00174      \textcolor{comment}{// Texture for Shadow Map FBO}}
+\DoxyCodeLine{00175      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} shadowMapWidth = 2048, shadowMapHeight = 2048;}
+\DoxyCodeLine{00176      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} shadowMap;}
+\DoxyCodeLine{00177      glGenTextures(1, \&shadowMap);}
+\DoxyCodeLine{00178      glBindTexture(GL\_TEXTURE\_2D, shadowMap);  }
+\DoxyCodeLine{00179      glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_DEPTH\_COMPONENT, shadowMapWidth, shadowMapHeight, 0, GL\_DEPTH\_COMPONENT, GL\_FLOAT, NULL);}
+\DoxyCodeLine{00180      glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{00181      glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{00182      glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_BORDER);}
+\DoxyCodeLine{00183      glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_BORDER);}
+\DoxyCodeLine{00184      \textcolor{comment}{// Prevents darkness outside the frustrum}}
+\DoxyCodeLine{00185      \textcolor{keywordtype}{float} clampColor[] = \{ 1.0f, 1.0f, 1.0f, 1.0f \};}
+\DoxyCodeLine{00186      glTexParameterfv(GL\_TEXTURE\_2D, GL\_TEXTURE\_BORDER\_COLOR, clampColor);}
+\DoxyCodeLine{00187 }
+\DoxyCodeLine{00188      glBindFramebuffer(GL\_FRAMEBUFFER, shadowMapFBO);}
+\DoxyCodeLine{00189      glFramebufferTexture2D(GL\_FRAMEBUFFER, GL\_DEPTH\_ATTACHMENT, GL\_TEXTURE\_2D, shadowMap, 0);}
+\DoxyCodeLine{00190      \textcolor{comment}{// Needed since we don't touch the color buffer}}
+\DoxyCodeLine{00191      glDrawBuffer(GL\_NONE);}
+\DoxyCodeLine{00192      glReadBuffer(GL\_NONE);}
+\DoxyCodeLine{00193      glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{00194 }
+\DoxyCodeLine{00195 }
+\DoxyCodeLine{00196      \textcolor{comment}{// Matrices needed for the light's perspective}}
+\DoxyCodeLine{00197      glm::mat4 orthgonalProjection = glm::ortho(-\/35.0f, 35.0f, -\/35.0f, 35.0f, 0.1f, 75.0f);}
+\DoxyCodeLine{00198      glm::mat4 lightView = glm::lookAt(20.0f * lightPos, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));}
+\DoxyCodeLine{00199      glm::mat4 lightProjection = orthgonalProjection * lightView;}
+\DoxyCodeLine{00200 }
+\DoxyCodeLine{00201      shadowMapProgram.Activate();}
+\DoxyCodeLine{00202      glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, \textcolor{stringliteral}{"{}lightProjection"{}}), 1, GL\_FALSE, glm::value\_ptr(lightProjection));}
+\DoxyCodeLine{00203 }
+\DoxyCodeLine{00204  }
+\DoxyCodeLine{00205 }
+\DoxyCodeLine{00206 }
+\DoxyCodeLine{00207     \textcolor{comment}{// Main while loop}}
+\DoxyCodeLine{00208     \textcolor{keywordflow}{while} (!glfwWindowShouldClose(window))}
+\DoxyCodeLine{00209     \{}
+\DoxyCodeLine{00210 }
+\DoxyCodeLine{00211         \textcolor{comment}{// Updates counter and times}}
+\DoxyCodeLine{00212         crntTime = glfwGetTime();}
+\DoxyCodeLine{00213         timeDiff = crntTime -\/ prevTime;}
+\DoxyCodeLine{00214         counter++;}
+\DoxyCodeLine{00215 }
+\DoxyCodeLine{00216         \textcolor{keywordflow}{if} (timeDiff >= 1.0 / 30.0)}
+\DoxyCodeLine{00217         \{}
+\DoxyCodeLine{00218             \textcolor{comment}{// Creates new title}}
+\DoxyCodeLine{00219             std::string FPS = std::to\_string((1.0 / timeDiff) * counter);}
+\DoxyCodeLine{00220             std::string ms = std::to\_string((timeDiff / counter) * 1000);}
+\DoxyCodeLine{00221             std::string newTitle = \textcolor{stringliteral}{"{}Project Window -\/ "{}} + FPS + \textcolor{stringliteral}{"{}FPS / "{}} + ms + \textcolor{stringliteral}{"{}ms"{}};}
+\DoxyCodeLine{00222             glfwSetWindowTitle(window, newTitle.c\_str());}
+\DoxyCodeLine{00223 }
+\DoxyCodeLine{00224             \textcolor{comment}{// Resets times and counter}}
+\DoxyCodeLine{00225             prevTime = crntTime;}
+\DoxyCodeLine{00226             counter = 0;}
+\DoxyCodeLine{00227 }
+\DoxyCodeLine{00228             }
+\DoxyCodeLine{00229         \}}
+\DoxyCodeLine{00230 }
+\DoxyCodeLine{00231         \textcolor{comment}{// Depth testing needed for Shadow Map}}
+\DoxyCodeLine{00232         glEnable(GL\_DEPTH\_TEST);}
+\DoxyCodeLine{00233 }
+\DoxyCodeLine{00234         \textcolor{comment}{// Preparations for the Shadow Map}}
+\DoxyCodeLine{00235         glViewport(0, 0, shadowMapWidth, shadowMapHeight);}
+\DoxyCodeLine{00236         glBindFramebuffer(GL\_FRAMEBUFFER, shadowMapFBO);}
+\DoxyCodeLine{00237         glClear(GL\_DEPTH\_BUFFER\_BIT);  }
+\DoxyCodeLine{00238          }
+\DoxyCodeLine{00239         \textcolor{comment}{// Draw scene for shadow map}}
+\DoxyCodeLine{00240         crow.Draw(shadowMapProgram, camera);}
+\DoxyCodeLine{00241 }
+\DoxyCodeLine{00242         \textcolor{comment}{// Switch back to the default framebuffer}}
+\DoxyCodeLine{00243         glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{00244         \textcolor{comment}{// Switch back to the default viewport}}
+\DoxyCodeLine{00245         glViewport(0, 0, \mbox{\hyperlink{_main_8cpp_a97e31b8e4bdfc1ab8145a3298c18a9e5}{width}}, \mbox{\hyperlink{_main_8cpp_add486058aba19977581ce8fe4bab90b6}{height}});}
+\DoxyCodeLine{00246 }
+\DoxyCodeLine{00247 }
+\DoxyCodeLine{00248         \textcolor{comment}{// Bind the custom framebuffer}}
+\DoxyCodeLine{00249         glBindFramebuffer(GL\_FRAMEBUFFER, FBO);}
+\DoxyCodeLine{00250         \textcolor{comment}{// Specify the color of the background}}
+\DoxyCodeLine{00251         glClearColor(pow(0.07f, \mbox{\hyperlink{_main_8cpp_a44978e15ba7fdb6b664ea10411fbe69d}{gamma}}), pow(0.13f, \mbox{\hyperlink{_main_8cpp_a44978e15ba7fdb6b664ea10411fbe69d}{gamma}}), pow(0.17f, \mbox{\hyperlink{_main_8cpp_a44978e15ba7fdb6b664ea10411fbe69d}{gamma}}), 1.0f);}
+\DoxyCodeLine{00252         \textcolor{comment}{// Clean the back buffer and depth buffer}}
+\DoxyCodeLine{00253         glClear(GL\_COLOR\_BUFFER\_BIT | GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{00254         \textcolor{comment}{// Enable depth testing since it's disabled when drawing the framebuffer rectangle}}
+\DoxyCodeLine{00255         glEnable(GL\_DEPTH\_TEST);}
+\DoxyCodeLine{00256 }
+\DoxyCodeLine{00257 }
+\DoxyCodeLine{00258         \textcolor{comment}{// Handles camera inputs}}
+\DoxyCodeLine{00259         camera.Inputs(window);}
+\DoxyCodeLine{00260         \textcolor{comment}{// Updates and exports the camera matrix to the Vertex Shader}}
+\DoxyCodeLine{00261         camera.updateMatrix(45.0f, 0.1f, 100.0f);}
+\DoxyCodeLine{00262 }
+\DoxyCodeLine{00263         \textcolor{comment}{// Send the light matrix to the shader}}
+\DoxyCodeLine{00264         shaderProgram.Activate();}
+\DoxyCodeLine{00265         glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, \textcolor{stringliteral}{"{}lightProjection"{}}), 1, GL\_FALSE, glm::value\_ptr(lightProjection));}
+\DoxyCodeLine{00266 }
+\DoxyCodeLine{00267         \textcolor{comment}{// Bind the Shadow Map}}
+\DoxyCodeLine{00268         glActiveTexture(GL\_TEXTURE0 + 2);}
+\DoxyCodeLine{00269         glBindTexture(GL\_TEXTURE\_2D, shadowMap);}
+\DoxyCodeLine{00270         glUniform1i(glGetUniformLocation(shaderProgram.ID, \textcolor{stringliteral}{"{}shadowMap"{}}), 2);}
+\DoxyCodeLine{00271 }
+\DoxyCodeLine{00272         }
+\DoxyCodeLine{00273         \textcolor{comment}{// Draw a model}}
+\DoxyCodeLine{00274         crow.Draw(shaderProgram, camera);}
+\DoxyCodeLine{00275 }
+\DoxyCodeLine{00276         \textcolor{comment}{// Make it so the multisampling FBO is read while the post-\/processing FBO is drawn}}
+\DoxyCodeLine{00277         glBindFramebuffer(GL\_READ\_FRAMEBUFFER, FBO);}
+\DoxyCodeLine{00278         glBindFramebuffer(GL\_DRAW\_FRAMEBUFFER, postProcessingFBO);}
+\DoxyCodeLine{00279         \textcolor{comment}{// Conclude the multisampling and copy it to the post-\/processing FBO}}
+\DoxyCodeLine{00280         glBlitFramebuffer(0, 0, \mbox{\hyperlink{_main_8cpp_a97e31b8e4bdfc1ab8145a3298c18a9e5}{width}}, \mbox{\hyperlink{_main_8cpp_add486058aba19977581ce8fe4bab90b6}{height}}, 0, 0, \mbox{\hyperlink{_main_8cpp_a97e31b8e4bdfc1ab8145a3298c18a9e5}{width}}, \mbox{\hyperlink{_main_8cpp_add486058aba19977581ce8fe4bab90b6}{height}}, GL\_COLOR\_BUFFER\_BIT, GL\_NEAREST);}
+\DoxyCodeLine{00281 }
+\DoxyCodeLine{00282 }
+\DoxyCodeLine{00283         \textcolor{comment}{// Bind the default framebuffer}}
+\DoxyCodeLine{00284         glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{00285         \textcolor{comment}{// Draw the framebuffer rectangle}}
+\DoxyCodeLine{00286         framebufferProgram.Activate();}
+\DoxyCodeLine{00287         glBindVertexArray(rectVAO);}
+\DoxyCodeLine{00288         glDisable(GL\_DEPTH\_TEST); \textcolor{comment}{// prevents framebuffer rectangle from being discarded}}
+\DoxyCodeLine{00289         glBindTexture(GL\_TEXTURE\_2D, postProcessingTexture);}
+\DoxyCodeLine{00290         glDrawArrays(GL\_TRIANGLES, 0, 6);}
+\DoxyCodeLine{00291 }
+\DoxyCodeLine{00292 }
+\DoxyCodeLine{00293         }
+\DoxyCodeLine{00294 }
+\DoxyCodeLine{00295         \textcolor{comment}{// Swap the back buffer with the front buffer}}
+\DoxyCodeLine{00296         glfwSwapBuffers(window);}
+\DoxyCodeLine{00297         \textcolor{comment}{// Take care of all GLFW events}}
+\DoxyCodeLine{00298         glfwPollEvents();}
+\DoxyCodeLine{00299     \}}
+\DoxyCodeLine{00300 }
+\DoxyCodeLine{00301 }
+\DoxyCodeLine{00302 }
+\DoxyCodeLine{00303     \textcolor{comment}{// Delete all the objects we've created}}
+\DoxyCodeLine{00304     shaderProgram.Delete();}
+\DoxyCodeLine{00305     glDeleteFramebuffers(1, \&FBO);}
+\DoxyCodeLine{00306     glDeleteFramebuffers(1, \&postProcessingFBO);}
+\DoxyCodeLine{00307     \textcolor{comment}{// Delete window before ending the program}}
+\DoxyCodeLine{00308     glfwDestroyWindow(window);}
+\DoxyCodeLine{00309     \textcolor{comment}{// Terminate GLFW before ending the program}}
+\DoxyCodeLine{00310     glfwTerminate();}
+\DoxyCodeLine{00311     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00312 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_main_8cpp_a44978e15ba7fdb6b664ea10411fbe69d}\label{_main_8cpp_a44978e15ba7fdb6b664ea10411fbe69d}} 
+\index{Main.cpp@{Main.cpp}!gamma@{gamma}}
+\index{gamma@{gamma}!Main.cpp@{Main.cpp}}
+\doxysubsubsection{\texorpdfstring{gamma}{gamma}}
+{\footnotesize\ttfamily float gamma = 2.\+2f}
+
+
+
+Definition at line \mbox{\hyperlink{_main_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_main_8cpp_source}{Main.\+cpp}}.
+
+\mbox{\Hypertarget{_main_8cpp_add486058aba19977581ce8fe4bab90b6}\label{_main_8cpp_add486058aba19977581ce8fe4bab90b6}} 
+\index{Main.cpp@{Main.cpp}!height@{height}}
+\index{height@{height}!Main.cpp@{Main.cpp}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily const unsigned int height = 1000}
+
+
+
+Definition at line \mbox{\hyperlink{_main_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{_main_8cpp_source}{Main.\+cpp}}.
+
+\mbox{\Hypertarget{_main_8cpp_aa7cb32507a2c180b10284002b0b18fbd}\label{_main_8cpp_aa7cb32507a2c180b10284002b0b18fbd}} 
+\index{Main.cpp@{Main.cpp}!rectangleVertices@{rectangleVertices}}
+\index{rectangleVertices@{rectangleVertices}!Main.cpp@{Main.cpp}}
+\doxysubsubsection{\texorpdfstring{rectangleVertices}{rectangleVertices}}
+{\footnotesize\ttfamily float rectangle\+Vertices\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    }
+\DoxyCodeLine{     1.0f, -\/1.0f,  1.0f, 0.0f,}
+\DoxyCodeLine{    -\/1.0f, -\/1.0f,  0.0f, 0.0f,}
+\DoxyCodeLine{    -\/1.0f,  1.0f,  0.0f, 1.0f,}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.0f,  1.0f,  1.0f, 1.0f,}
+\DoxyCodeLine{     1.0f, -\/1.0f,  1.0f, 0.0f,}
+\DoxyCodeLine{    -\/1.0f,  1.0f,  0.0f, 1.0f}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_main_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_main_8cpp_source}{Main.\+cpp}}.
+
+\mbox{\Hypertarget{_main_8cpp_ae3f31aa39921829eefb3c77d8ec1008e}\label{_main_8cpp_ae3f31aa39921829eefb3c77d8ec1008e}} 
+\index{Main.cpp@{Main.cpp}!samples@{samples}}
+\index{samples@{samples}!Main.cpp@{Main.cpp}}
+\doxysubsubsection{\texorpdfstring{samples}{samples}}
+{\footnotesize\ttfamily unsigned int samples = 8}
+
+
+
+Definition at line \mbox{\hyperlink{_main_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{_main_8cpp_source}{Main.\+cpp}}.
+
+\mbox{\Hypertarget{_main_8cpp_a97e31b8e4bdfc1ab8145a3298c18a9e5}\label{_main_8cpp_a97e31b8e4bdfc1ab8145a3298c18a9e5}} 
+\index{Main.cpp@{Main.cpp}!width@{width}}
+\index{width@{width}!Main.cpp@{Main.cpp}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily const unsigned int width = 1000}
+
+
+
+Definition at line \mbox{\hyperlink{_main_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_main_8cpp_source}{Main.\+cpp}}.
+

@@ -1,0 +1,127 @@
+\hypertarget{_texture_8cpp_source}{}\doxysection{Texture.\+cpp}
+\label{_texture_8cpp_source}\index{D:/Project1/Texture.cpp@{D:/Project1/Texture.cpp}}
+\mbox{\hyperlink{_texture_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_texture_8h}{Texture.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00003}\mbox{\hyperlink{class_texture_afdbeb72c9d02c2d278b019b7b6320905}{00003}} \mbox{\hyperlink{class_texture_afdbeb72c9d02c2d278b019b7b6320905}{Texture::Texture}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* image, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* texType, GLuint slot)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00004}00004 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00006}00006     }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00007}00007     \textcolor{comment}{// Assigns the type of the texture ot the texture object}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00008}00008     \mbox{\hyperlink{class_texture_afe821b9329d4aa65d608408f96494985}{type}} = texType;}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00010}00010     \textcolor{comment}{// Stores the width, height, and the number of color channels of the image}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00011}00011     \textcolor{keywordtype}{int} widthImg, heightImg, numColCh;}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00012}00012     \textcolor{comment}{// Flips the image so it appears right side up}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00013}00013     stbi\_set\_flip\_vertically\_on\_load(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00014}00014     \textcolor{comment}{// Reads the image from a file and stores it in bytes}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00015}00015     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* bytes = stbi\_load(image, \&widthImg, \&heightImg, \&numColCh, 0);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00017}00017     \textcolor{comment}{// Generates an OpenGL texture object}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00018}00018     glGenTextures(1, \&\mbox{\hyperlink{class_texture_ab36997a503d4ee65aac557b857a1db8e}{ID}});}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00019}00019     \textcolor{comment}{// Assigns the texture to a Texture Unit}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00020}00020     glActiveTexture(GL\_TEXTURE0 + slot);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00021}00021     \mbox{\hyperlink{class_texture_a9041cdeccaf234cd3945ef88e1092ebf}{unit}} = slot;}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00022}00022     glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_texture_ab36997a503d4ee65aac557b857a1db8e}{ID}});}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00024}00024     \textcolor{comment}{// Configures the type of algorithm that is used to make the image smaller or bigger}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00025}00025     glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST\_MIPMAP\_LINEAR);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00026}00026     glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00028}00028     \textcolor{comment}{// Configures the way the texture repeats (if it does at all)}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00029}00029     glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_S, GL\_REPEAT);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00030}00030     glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_T, GL\_REPEAT);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00032}00032     \textcolor{comment}{// Extra lines in case you choose to use GL\_CLAMP\_TO\_BORDER}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00033}00033     \textcolor{comment}{// float flatColor[] = \{1.0f, 1.0f, 1.0f, 1.0f\};}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00034}00034     \textcolor{comment}{// glTexParameterfv(GL\_TEXTURE\_2D, GL\_TEXTURE\_BORDER\_COLOR, flatColor);}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00036}00036     }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00037}00037     \textcolor{comment}{// Check what type of color channels the texture has and load it accordingly}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00038}00038     \textcolor{keywordflow}{if} (numColCh == 4)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00039}00039         glTexImage2D}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00040}00040         (}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00041}00041             GL\_TEXTURE\_2D,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00042}00042             0,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00043}00043             GL\_SRGB\_ALPHA,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00044}00044             widthImg,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00045}00045             heightImg,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00046}00046             0,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00047}00047             GL\_RGBA,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00048}00048             GL\_UNSIGNED\_BYTE,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00049}00049             bytes}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00050}00050         );}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00051}00051     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numColCh == 3)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00052}00052         glTexImage2D}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00053}00053         (}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00054}00054             GL\_TEXTURE\_2D,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00055}00055             0,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00056}00056             GL\_SRGB,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00057}00057             widthImg,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00058}00058             heightImg,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00059}00059             0,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00060}00060             GL\_RGB,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00061}00061             GL\_UNSIGNED\_BYTE,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00062}00062             bytes}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00063}00063         );}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00064}00064     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numColCh == 1)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00065}00065         glTexImage2D}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00066}00066         (}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00067}00067             GL\_TEXTURE\_2D,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00068}00068             0,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00069}00069             GL\_SRGB,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00070}00070             widthImg,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00071}00071             heightImg,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00072}00072             0,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00073}00073             GL\_RED,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00074}00074             GL\_UNSIGNED\_BYTE,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00075}00075             bytes}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00076}00076         );}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00077}00077     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00078}00078         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}Automatic Texture type recognition failed"{}});}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00084}00084     \textcolor{comment}{// Generates MipMaps}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00085}00085     glGenerateMipmap(GL\_TEXTURE\_2D);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00087}00087     \textcolor{comment}{// Deletes the image data as it is already in the OpenGL Texture object}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00088}00088     stbi\_image\_free(bytes);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00090}00090     \textcolor{comment}{// Unbinds the OpenGL Texture object so that it can't accidentally be modified}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00091}00091     glBindTexture(GL\_TEXTURE\_2D, 0);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00092}00092 \}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00094}\mbox{\hyperlink{class_texture_af4a7f134c553ea9ecd4c5144f6bfeabb}{00094}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_af4a7f134c553ea9ecd4c5144f6bfeabb}{Texture::texUnit}}(\mbox{\hyperlink{class_shader}{Shader}}\& shader, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* uniform, GLuint unit)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00095}00095 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00097}00097     }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00098}00098     \textcolor{comment}{// Gets the location of the uniform}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00099}00099     GLuint texUni = glGetUniformLocation(shader.\mbox{\hyperlink{class_shader_a7be2afcbd5ba5873a04536a2b4b5e576}{ID}}, uniform);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00100}00100     \textcolor{comment}{// Shader needs to be activated before changing the value of a uniform}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00101}00101     shader.\mbox{\hyperlink{class_shader_a4315a6336472b293392aa50e7a4e65d0}{Activate}}();}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00102}00102     \textcolor{comment}{// Sets the value of the uniform}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00103}00103     glUniform1i(texUni, \mbox{\hyperlink{class_texture_a9041cdeccaf234cd3945ef88e1092ebf}{unit}});}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00104}00104 \}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00106}\mbox{\hyperlink{class_texture_ad08d4f76a21cc46f55b05e35b06a0f74}{00106}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_ad08d4f76a21cc46f55b05e35b06a0f74}{Texture::Bind}}()}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00107}00107 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00109}00109     }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00110}00110     glActiveTexture(GL\_TEXTURE0 + \mbox{\hyperlink{class_texture_a9041cdeccaf234cd3945ef88e1092ebf}{unit}});}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00111}00111     glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_texture_ab36997a503d4ee65aac557b857a1db8e}{ID}});}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00112}00112 \}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00113}00113 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00114}\mbox{\hyperlink{class_texture_a9a1a4a09cb4a06b5fd24188f6886a932}{00114}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_a9a1a4a09cb4a06b5fd24188f6886a932}{Texture::Unbind}}()}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00115}00115 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00117}00117     }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00118}00118     glBindTexture(GL\_TEXTURE\_2D, 0);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00119}00119 \}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00120}00120 }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00121}\mbox{\hyperlink{class_texture_a653216bcd1509432e28502d9fc7826ce}{00121}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_a653216bcd1509432e28502d9fc7826ce}{Texture::Delete}}()}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00122}00122 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00124}00124     }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00125}00125     glDeleteTextures(1, \&\mbox{\hyperlink{class_texture_ab36997a503d4ee65aac557b857a1db8e}{ID}});}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00126}00126 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,198 @@
+\hypertarget{class_mesh}{}\doxysection{Mesh Class Reference}
+\label{class_mesh}\index{Mesh@{Mesh}}
+
+
+{\ttfamily \#include $<$Mesh.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mesh_a3a7b7bb4a172a517e86e197b267f324d}{Mesh}} (std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ \&\mbox{\hyperlink{class_mesh_a6465a888c97232a39e12aad008c969c3}{vertices}}, std\+::vector$<$ GLuint $>$ \&\mbox{\hyperlink{class_mesh_a5e55b84c6c967608bcf23ed7d68e4215}{indices}}, std\+::vector$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$ \&\mbox{\hyperlink{class_mesh_abf1e672703bf4f8e104f3b076faaf958}{textures}})
+\item 
+void \mbox{\hyperlink{class_mesh_ad426ffcf04c7df2631f492a80e06d738}{Draw}} (\mbox{\hyperlink{class_shader}{Shader}} \&shader, \mbox{\hyperlink{class_camera}{Camera}} \&camera, glm\+::mat4 matrix=glm\+::mat4(1.\+0f), glm\+::vec3 translation=glm\+::vec3(0.\+0f, 0.\+0f, 0.\+0f), glm\+::quat rotation=glm\+::quat(1.\+0f, 0.\+0f, 0.\+0f, 0.\+0f), glm\+::vec3 scale=glm\+::vec3(1.\+0f, 1.\+0f, 1.\+0f))
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ \mbox{\hyperlink{class_mesh_a6465a888c97232a39e12aad008c969c3}{vertices}}
+\item 
+std\+::vector$<$ GLuint $>$ \mbox{\hyperlink{class_mesh_a5e55b84c6c967608bcf23ed7d68e4215}{indices}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$ \mbox{\hyperlink{class_mesh_abf1e672703bf4f8e104f3b076faaf958}{textures}}
+\item 
+\mbox{\hyperlink{class_v_a_o}{VAO}} \mbox{\hyperlink{class_mesh_a070175e7c5d0d1de32a9d62cce73ace0}{VAO}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_mesh_8h_source_l00011}{11}} of file \mbox{\hyperlink{_mesh_8h_source}{Mesh.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_mesh_a3a7b7bb4a172a517e86e197b267f324d}\label{class_mesh_a3a7b7bb4a172a517e86e197b267f324d}} 
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{Mesh()}{Mesh()}}
+{\footnotesize\ttfamily Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ \&}]{vertices,  }\item[{std\+::vector$<$ GLuint $>$ \&}]{indices,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$ \&}]{textures }\end{DoxyParamCaption})}
+
+To make individual meshes of the called model by linking vertices, indices and textures to \mbox{\hyperlink{class_v_b_o}{VBO}}, \mbox{\hyperlink{class_e_b_o}{EBO}} and \mbox{\hyperlink{class_v_a_o}{VAO}}  
+\begin{DoxyParams}{Parameters}
+{\em vertices} & \\
+\hline
+{\em indices} & \\
+\hline
+{\em textures} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_mesh_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_mesh_8cpp_source}{Mesh.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004 \{}
+\DoxyCodeLine{00011     }
+\DoxyCodeLine{00012     \mbox{\hyperlink{class_mesh_a6465a888c97232a39e12aad008c969c3}{Mesh::vertices}} = \mbox{\hyperlink{class_mesh_a6465a888c97232a39e12aad008c969c3}{vertices}};}
+\DoxyCodeLine{00013     \mbox{\hyperlink{class_mesh_a5e55b84c6c967608bcf23ed7d68e4215}{Mesh::indices}} = \mbox{\hyperlink{class_mesh_a5e55b84c6c967608bcf23ed7d68e4215}{indices}};}
+\DoxyCodeLine{00014     \mbox{\hyperlink{class_mesh_abf1e672703bf4f8e104f3b076faaf958}{Mesh::textures}} = \mbox{\hyperlink{class_mesh_abf1e672703bf4f8e104f3b076faaf958}{textures}};}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016     }
+\DoxyCodeLine{00017     \mbox{\hyperlink{class_v_a_o}{VAO}}.\mbox{\hyperlink{class_v_a_o_a7e9333d9696005783f8d1074d6b54003}{Bind}}();}
+\DoxyCodeLine{00018     \textcolor{comment}{// Generates Vertex Buffer Object and links it to vertices}}
+\DoxyCodeLine{00019     \mbox{\hyperlink{class_v_b_o}{VBO}} \mbox{\hyperlink{class_v_b_o}{VBO}}(\mbox{\hyperlink{class_mesh_a6465a888c97232a39e12aad008c969c3}{vertices}});}
+\DoxyCodeLine{00020     \textcolor{comment}{// Generates Element Buffer Object and links it to indices}}
+\DoxyCodeLine{00021     \mbox{\hyperlink{class_e_b_o}{EBO}} \mbox{\hyperlink{class_e_b_o}{EBO}}(\mbox{\hyperlink{class_mesh_a5e55b84c6c967608bcf23ed7d68e4215}{indices}});}
+\DoxyCodeLine{00022     \textcolor{comment}{// Links VBO attributes such as coordinates and colors to VAO}}
+\DoxyCodeLine{00023     \mbox{\hyperlink{class_v_a_o}{VAO}}.\mbox{\hyperlink{class_v_a_o_ad6f646c98448d9c8a3d1ad198af0532f}{LinkAttrib}}(\mbox{\hyperlink{class_v_b_o}{VBO}}, 0, 3, GL\_FLOAT, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_vertex}{Vertex}}), (\textcolor{keywordtype}{void}*)0);}
+\DoxyCodeLine{00024     \mbox{\hyperlink{class_v_a_o}{VAO}}.\mbox{\hyperlink{class_v_a_o_ad6f646c98448d9c8a3d1ad198af0532f}{LinkAttrib}}(\mbox{\hyperlink{class_v_b_o}{VBO}}, 1, 3, GL\_FLOAT, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_vertex}{Vertex}}), (\textcolor{keywordtype}{void}*)(3 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{00025     \mbox{\hyperlink{class_v_a_o}{VAO}}.\mbox{\hyperlink{class_v_a_o_ad6f646c98448d9c8a3d1ad198af0532f}{LinkAttrib}}(\mbox{\hyperlink{class_v_b_o}{VBO}}, 2, 3, GL\_FLOAT, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_vertex}{Vertex}}), (\textcolor{keywordtype}{void}*)(6 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{00026     \mbox{\hyperlink{class_v_a_o}{VAO}}.\mbox{\hyperlink{class_v_a_o_ad6f646c98448d9c8a3d1ad198af0532f}{LinkAttrib}}(\mbox{\hyperlink{class_v_b_o}{VBO}}, 3, 2, GL\_FLOAT, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_vertex}{Vertex}}), (\textcolor{keywordtype}{void}*)(9 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{00027     \textcolor{comment}{// Unbind all to prevent accidentally modifying them}}
+\DoxyCodeLine{00028     \mbox{\hyperlink{class_v_a_o}{VAO}}.\mbox{\hyperlink{class_v_a_o_a494321f165270d2294b5ece8bf431959}{Unbind}}();}
+\DoxyCodeLine{00029     \mbox{\hyperlink{class_v_b_o}{VBO}}.\mbox{\hyperlink{class_v_b_o_a4b3db8676fbf6dd90d47ed91cafb0abb}{Unbind}}();}
+\DoxyCodeLine{00030     \mbox{\hyperlink{class_e_b_o}{EBO}}.\mbox{\hyperlink{class_e_b_o_aeaba495af304f0a3a42d041aec49a759}{Unbind}}();}
+\DoxyCodeLine{00031 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mesh_ad426ffcf04c7df2631f492a80e06d738}\label{class_mesh_ad426ffcf04c7df2631f492a80e06d738}} 
+\index{Mesh@{Mesh}!Draw@{Draw}}
+\index{Draw@{Draw}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Mesh\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_shader}{Shader}} \&}]{shader,  }\item[{\mbox{\hyperlink{class_camera}{Camera}} \&}]{camera,  }\item[{glm\+::mat4}]{matrix = {\ttfamily glm\+:\+:mat4(1.0f)},  }\item[{glm\+::vec3}]{translation = {\ttfamily glm\+:\+:vec3(0.0f,~0.0f,~0.0f)},  }\item[{glm\+::quat}]{rotation = {\ttfamily glm\+:\+:quat(1.0f,~0.0f,~0.0f,~0.0f)},  }\item[{glm\+::vec3}]{scale = {\ttfamily glm\+:\+:vec3(1.0f,~1.0f,~1.0f)} }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Draws/\+Renders meshes based on \mbox{\hyperlink{class_shader}{Shader}} class, \mbox{\hyperlink{class_camera}{Camera}} class, translation, rotation and scale of the mesh.
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_mesh_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_mesh_8cpp_source}{Mesh.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041   \{}
+\DoxyCodeLine{00042     }
+\DoxyCodeLine{00044     }
+\DoxyCodeLine{00045     }
+\DoxyCodeLine{00046     \textcolor{comment}{// Bind shader to be able to access uniforms}}
+\DoxyCodeLine{00047     shader.\mbox{\hyperlink{class_shader_a4315a6336472b293392aa50e7a4e65d0}{Activate}}();}
+\DoxyCodeLine{00048     \mbox{\hyperlink{class_v_a_o}{VAO}}.\mbox{\hyperlink{class_v_a_o_a7e9333d9696005783f8d1074d6b54003}{Bind}}();}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050     \textcolor{comment}{// Keep track of how many of each type of textures we have}}
+\DoxyCodeLine{00051     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} numDiffuse = 0;}
+\DoxyCodeLine{00052     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} numSpecular = 0;}
+\DoxyCodeLine{00053 }
+\DoxyCodeLine{00054     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_mesh_abf1e672703bf4f8e104f3b076faaf958}{textures}}.size(); i++)}
+\DoxyCodeLine{00055     \{}
+\DoxyCodeLine{00056         std::string num;}
+\DoxyCodeLine{00057         std::string type = \mbox{\hyperlink{class_mesh_abf1e672703bf4f8e104f3b076faaf958}{textures}}[i].type;}
+\DoxyCodeLine{00058         \textcolor{keywordflow}{if} (type == \textcolor{stringliteral}{"{}diffuse"{}})}
+\DoxyCodeLine{00059         \{}
+\DoxyCodeLine{00060             num = std::to\_string(numDiffuse++);}
+\DoxyCodeLine{00061         \}}
+\DoxyCodeLine{00062         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (type == \textcolor{stringliteral}{"{}specular"{}})}
+\DoxyCodeLine{00063         \{}
+\DoxyCodeLine{00064             num = std::to\_string(numSpecular++);}
+\DoxyCodeLine{00065         \}}
+\DoxyCodeLine{00066         \mbox{\hyperlink{class_mesh_abf1e672703bf4f8e104f3b076faaf958}{textures}}[i].texUnit(shader, (type + num).c\_str(), i);}
+\DoxyCodeLine{00067         \mbox{\hyperlink{class_mesh_abf1e672703bf4f8e104f3b076faaf958}{textures}}[i].Bind();}
+\DoxyCodeLine{00068     \}}
+\DoxyCodeLine{00069     \textcolor{comment}{// Take care of the camera Matrix}}
+\DoxyCodeLine{00070     glUniform3f(glGetUniformLocation(shader.\mbox{\hyperlink{class_shader_a7be2afcbd5ba5873a04536a2b4b5e576}{ID}}, \textcolor{stringliteral}{"{}camPos"{}}), camera.\mbox{\hyperlink{class_camera_a9733b59f5340f6f1bca24d52a6679039}{Position}}.x, camera.\mbox{\hyperlink{class_camera_a9733b59f5340f6f1bca24d52a6679039}{Position}}.y, camera.\mbox{\hyperlink{class_camera_a9733b59f5340f6f1bca24d52a6679039}{Position}}.z);}
+\DoxyCodeLine{00071     camera.\mbox{\hyperlink{class_camera_ae54a64c6b63804e101289cff12874445}{Matrix}}(shader, \textcolor{stringliteral}{"{}camMatrix"{}});}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073     \textcolor{comment}{// Initialize matrices}}
+\DoxyCodeLine{00074     glm::mat4 trans = glm::mat4(1.0f);}
+\DoxyCodeLine{00075     glm::mat4 rot = glm::mat4(1.0f);}
+\DoxyCodeLine{00076     glm::mat4 sca = glm::mat4(1.0f);}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078     \textcolor{comment}{// Transform the matrices to their correct form}}
+\DoxyCodeLine{00079     trans = glm::translate(trans, translation);}
+\DoxyCodeLine{00080     rot = glm::mat4\_cast(rotation);}
+\DoxyCodeLine{00081     sca = glm::scale(sca, scale);}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083     \textcolor{comment}{// Push the matrices to the vertex shader}}
+\DoxyCodeLine{00084     glUniformMatrix4fv(glGetUniformLocation(shader.\mbox{\hyperlink{class_shader_a7be2afcbd5ba5873a04536a2b4b5e576}{ID}}, \textcolor{stringliteral}{"{}translation"{}}), 1, GL\_FALSE, glm::value\_ptr(trans));}
+\DoxyCodeLine{00085     glUniformMatrix4fv(glGetUniformLocation(shader.\mbox{\hyperlink{class_shader_a7be2afcbd5ba5873a04536a2b4b5e576}{ID}}, \textcolor{stringliteral}{"{}rotation"{}}), 1, GL\_FALSE, glm::value\_ptr(rot));}
+\DoxyCodeLine{00086     glUniformMatrix4fv(glGetUniformLocation(shader.\mbox{\hyperlink{class_shader_a7be2afcbd5ba5873a04536a2b4b5e576}{ID}}, \textcolor{stringliteral}{"{}scale"{}}), 1, GL\_FALSE, glm::value\_ptr(sca));}
+\DoxyCodeLine{00087     glUniformMatrix4fv(glGetUniformLocation(shader.\mbox{\hyperlink{class_shader_a7be2afcbd5ba5873a04536a2b4b5e576}{ID}}, \textcolor{stringliteral}{"{}model"{}}), 1, GL\_FALSE, glm::value\_ptr(matrix));}
+\DoxyCodeLine{00088 }
+\DoxyCodeLine{00089     \textcolor{comment}{// Draw the actual mesh}}
+\DoxyCodeLine{00090     glDrawElements(GL\_TRIANGLES, \mbox{\hyperlink{class_mesh_a5e55b84c6c967608bcf23ed7d68e4215}{indices}}.size(), GL\_UNSIGNED\_INT, 0);}
+\DoxyCodeLine{00091 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_mesh_a5e55b84c6c967608bcf23ed7d68e4215}\label{class_mesh_a5e55b84c6c967608bcf23ed7d68e4215}} 
+\index{Mesh@{Mesh}!indices@{indices}}
+\index{indices@{indices}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{indices}{indices}}
+{\footnotesize\ttfamily std\+::vector$<$GLuint$>$ Mesh\+::indices}
+
+
+
+Definition at line \mbox{\hyperlink{_mesh_8h_source_l00015}{15}} of file \mbox{\hyperlink{_mesh_8h_source}{Mesh.\+h}}.
+
+\mbox{\Hypertarget{class_mesh_abf1e672703bf4f8e104f3b076faaf958}\label{class_mesh_abf1e672703bf4f8e104f3b076faaf958}} 
+\index{Mesh@{Mesh}!textures@{textures}}
+\index{textures@{textures}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{textures}{textures}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_texture}{Texture}}$>$ Mesh\+::textures}
+
+
+
+Definition at line \mbox{\hyperlink{_mesh_8h_source_l00016}{16}} of file \mbox{\hyperlink{_mesh_8h_source}{Mesh.\+h}}.
+
+\mbox{\Hypertarget{class_mesh_a070175e7c5d0d1de32a9d62cce73ace0}\label{class_mesh_a070175e7c5d0d1de32a9d62cce73ace0}} 
+\index{Mesh@{Mesh}!VAO@{VAO}}
+\index{VAO@{VAO}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{VAO}{VAO}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_v_a_o}{VAO}} Mesh\+::\+VAO}
+
+
+
+Definition at line \mbox{\hyperlink{_mesh_8h_source_l00018}{18}} of file \mbox{\hyperlink{_mesh_8h_source}{Mesh.\+h}}.
+
+\mbox{\Hypertarget{class_mesh_a6465a888c97232a39e12aad008c969c3}\label{class_mesh_a6465a888c97232a39e12aad008c969c3}} 
+\index{Mesh@{Mesh}!vertices@{vertices}}
+\index{vertices@{vertices}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{struct_vertex}{Vertex}}$>$ Mesh\+::vertices}
+
+
+
+Definition at line \mbox{\hyperlink{_mesh_8h_source_l00014}{14}} of file \mbox{\hyperlink{_mesh_8h_source}{Mesh.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Project1/\mbox{\hyperlink{_mesh_8h}{Mesh.\+h}}\item 
+D\+:/\+Project1/\mbox{\hyperlink{_mesh_8cpp}{Mesh.\+cpp}}\end{DoxyCompactItemize}
